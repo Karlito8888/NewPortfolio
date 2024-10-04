@@ -1,0 +1,80 @@
+{
+  "short_name": "Portfolio",
+  "name": "Mon Portfolio",
+  "lang": "fr-FR",
+  "icons": [
+    {
+      "src": "./icons/logoCB-16.png",
+      "type": "image/png",
+      "sizes": "16x16"
+    },
+    {
+      "src": "./icons/logoCB-32.png",
+      "type": "image/png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "./icons/logoCB-48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/logoCB-72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/logoCB-96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/logoCB-128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/logoCB-144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/logoCB-152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/logoCB-180.png",
+      "type": "image/png",
+      "sizes": "180x180"
+    },
+    {
+      "src": "./icons/logoCB-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "./icons/logoCB-256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "./icons/logoCB-384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "./icons/logoCB-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/index.html",
+  "background_color": "#FFFFFF",
+  "display": "standalone",
+  "theme_color": "#9356dc",
+  "description": "Un portfolio interactif pour présenter mes projets.",
+  "scope": "/",
+  "dir": "ltr",
+  "categories": ["portfolio", "education", "productivity"]
+}

@@ -1,0 +1,24 @@
+.skills-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.skills-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px; /* Espace entre les compétences */
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px; /* Largeur fixe pour une bonne mise en page */
+}
+
+.skill-label {
+  margin-top: 8px; /* Espace entre l'icône et le label */
+  font-weight: bold;
+  color: #333; /* Couleur du texte */
+}
