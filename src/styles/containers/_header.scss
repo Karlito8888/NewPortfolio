@@ -3,10 +3,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: clamp(0.9375rem, 0.0429rem + 2.8626vw, 1.875rem);
-  position: fixed;
-  z-index: 100;
-  backdrop-filter: blur(10px);
-
-
+  padding-block: 20px;
+  
 }

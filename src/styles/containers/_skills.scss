@@ -1,24 +1,40 @@
 .skills-container {
-  text-align: center;
-  padding: 20px;
-}
-
-.skills-list {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px; /* Espace entre les compétences */
-}
-
-.skill-item {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 100px; /* Largeur fixe pour une bonne mise en page */
-}
+  gap: 20px;
 
-.skill-label {
-  margin-top: 8px; /* Espace entre l'icône et le label */
-  font-weight: bold;
-  color: #333; /* Couleur du texte */
+  .skills-category {
+    margin-bottom: 20px;
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .skill-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      text-align: center;
+      padding: 15px;
+      border: 1px solid white;
+      border-radius: 15px;
+
+      img {
+        width: min-content;
+        margin-inline: auto;
+      }
+
+      .skill-label {
+        font-size: 1.2rem;
+      }
+    }
+  }
 }

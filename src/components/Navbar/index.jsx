@@ -1,10 +1,10 @@
 import { useMemo, useState } from "react";
 
 const Navbar = () => {
-  const [activeTab, setActiveTab] = useState("Accueil");
+  const [activeTab, setActiveTab] = useState("À propos");
 
   const listnav = useMemo(
-    () => ["Accueil", "Compétences", "Projets", "Contact"],
+    () => ["À propos", "Compétences", "Projets", "Contact"],
     []
   );
 
@@ -19,10 +19,12 @@ const Navbar = () => {
           {listnav.map((item) => (
             <li key={item}>
               <a
-                href={`#${item.toLowerCase()}`}
+                href={`#${
+                  item === "À propos" ? "a-propos" : item.toLowerCase()
+                }`}
                 aria-label={item}
-                className={activeTab === item ? "active" : ""} // Ajoute une classe si l'onglet est actif
-                onClick={() => handleTabClick(item)} // Gère le clic sur l'onglet
+                className={activeTab === item ? "active" : ""}
+                onClick={() => handleTabClick(item)}
               >
                 {item}
               </a>
