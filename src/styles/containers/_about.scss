@@ -60,7 +60,7 @@
         background-color: #eaeaea;
       }
        &:hover {
-      transform: scale(1.05) rotate(2deg); // Léger zoom et rotation
+      transform: scale(1.05) rotate(2deg);
       box-shadow: 1px 10px 30px 10px rgba(0, 0, 0, 0.3);
     }
       figcaption {
@@ -74,8 +74,3 @@
   }
 }
 
-@keyframes gradientAnimation {
-  to {
-    background-position: 200% center;
-  }
-}

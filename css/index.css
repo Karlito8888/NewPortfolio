@@ -115,6 +115,23 @@ button {
   border: 0;
 }
 
+@-webkit-keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
 .header-container {
   width: 100%;
   display: -webkit-box;
@@ -331,17 +348,6 @@ button {
   color: #333 !important;
 }
 
-@-webkit-keyframes gradientAnimation {
-  to {
-    background-position: 200% center;
-  }
-}
-
-@keyframes gradientAnimation {
-  to {
-    background-position: 200% center;
-  }
-}
 .skills-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -367,7 +373,7 @@ button {
       flex-wrap: wrap;
   gap: 15px;
 }
-.skills-container .skills-category .skill-item {
+.skills-container .skills-category .skills-list .skill-item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -384,12 +390,10 @@ button {
   border: 1px solid white;
   border-radius: 15px;
 }
-.skills-container .skills-category .skill-item img {
-  width: -webkit-min-content;
-  width: -moz-min-content;
-  width: min-content;
-  margin-inline: auto;
+.skills-container .skills-category .skills-list .skill-item .skill-icon {
+  width: 100px;
+  fill: aliceblue;
 }
-.skills-container .skills-category .skill-item .skill-label {
+.skills-container .skills-category .skills-list .skill-label {
   font-size: 1.2rem;
 }/*# sourceMappingURL=index.css.map */

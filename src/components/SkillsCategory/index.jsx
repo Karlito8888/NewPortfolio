@@ -1,4 +1,4 @@
-import PropTypes from "prop-types"; // Importation de PropTypes
+import PropTypes from "prop-types";
 
 const SkillsCategory = ({ title, skills }) => {
   return (
@@ -12,7 +12,7 @@ const SkillsCategory = ({ title, skills }) => {
             role="listitem"
             aria-label={skill.label}
           >
-            <img src={skill.icon} alt={skill.label} />
+            {skill.icon}
             <span className="skill-label">{skill.label}</span>
           </div>
         ))}
@@ -21,15 +21,14 @@ const SkillsCategory = ({ title, skills }) => {
   );
 };
 
-// Validation des props
 SkillsCategory.propTypes = {
-  title: PropTypes.string.isRequired, // 'title' doit être une string et est requis
+  title: PropTypes.string.isRequired,
   skills: PropTypes.arrayOf(
     PropTypes.shape({
-      icon: PropTypes.string.isRequired, // 'icon' doit être une string et est requis
-      label: PropTypes.string.isRequired, // 'label' doit être une string et est requis
+      icon: PropTypes.node.isRequired,
+      label: PropTypes.string.isRequired,
     })
-  ).isRequired, // 'skills' doit être un tableau d'objets et est requis
+  ).isRequired,
 };
 
 export default SkillsCategory;
