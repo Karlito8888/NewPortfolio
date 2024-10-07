@@ -19,41 +19,68 @@
       .skill-item {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        gap: 5px;
         text-align: center;
         padding: 15px;
         border: 1px solid white;
         border-radius: 15px;
-
-        .skill-icon {
-          width: 100px;
-          fill: aliceblue;
+        width: 200px;
+        height: 200px;
+        
+        // Contrôle la taille des parties
+        .skill-gradient {
+          flex: 3; /* Partie supérieure (dégradé) */
+          background-size: 300% 100%;
+          mask-repeat: no-repeat;
+          mask-position: center;
+          mask-size: contain;
+          -webkit-mask-repeat: no-repeat;
+          -webkit-mask-position: center;
+          -webkit-mask-size: contain;
+          animation: move-gradient 3s linear infinite;
         }
-        // .html-icon,
-        // .css-icon {
-        //   animation: animateShift 2s infinite;
-        // }
+
+        .skill-label {
+          flex: 1;
+          font-size: 1.25rem;
+          font-weight: bold;
+          display: flex; 
+          justify-content: center;
+          align-items: flex-end;
+        }
       }
-      .skill-label {
-        font-size: 1.2rem;
+
+      .skill-item.html5 .skill-gradient {
+        background-image: linear-gradient(to right, rgb(255, 60, 0), #F5A600, rgb(255, 60, 0));
+        mask-image: url("./logos/html.svg");
+        -webkit-mask-image: url("./logos/html.svg");
+      }
+
+      .skill-item.css3 .skill-gradient {
+        background-image: linear-gradient(to right, #0506EF, #70d7f7, #0506EF);
+        mask-image: url("./logos/css3.svg");
+        -webkit-mask-image: url("./logos/css3.svg");
+      }
+
+      .skill-item.sass .skill-gradient {
+        background-image: linear-gradient(to right, #F03C98, #F08CBF, #F03C98);
+        mask-image: url("./logos/sass.svg");
+        -webkit-mask-image: url("./logos/sass.svg");
+      }
+
+      .skill-item.javascript .skill-gradient {
+        mask-image: url("./logos/js.svg");
+        -webkit-mask-image: url("./logos/js.svg");
       }
     }
   }
 }
 
+@keyframes move-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}
 
-// @keyframes animateShift {
-//   0% {
-//     transform: scale(1);
-//     opacity: 1;
-//   }
-//   50% {
-//     transform: scale(1.05);
-//     opacity: 0.8;
-//   }
-//   100% {
-//     transform: scale(1);
-//     opacity: 1;
-//   }
-// }

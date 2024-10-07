@@ -5,21 +5,27 @@ const SkillsCategory = ({ title, skills }) => {
     <div className="skills-category">
       <h3>{title}</h3>
       <div className="skills-list" role="list">
-        {skills.map((skill, index) => (
-          <div
-            key={index}
-            className="skill-item"
-            role="listitem"
-            aria-label={skill.label}
-          >
-            {skill.icon}
-            <span className="skill-label">{skill.label}</span>
-          </div>
-        ))}
+        {skills.map((skill, index) => {
+          const className = `skill-item ${skill.label
+            .toLowerCase()
+            .replace(/\s+/g, "-")}`;
+          return (
+            <div
+              key={index}
+              className={className}
+              role="listitem"
+              aria-label={skill.label}
+            >
+              <div className="skill-gradient" />
+              <span className="skill-label">{skill.label}</span>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
 };
+
 
 SkillsCategory.propTypes = {
   title: PropTypes.string.isRequired,
@@ -32,3 +38,4 @@ SkillsCategory.propTypes = {
 };
 
 export default SkillsCategory;
+

@@ -381,19 +381,80 @@ button {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 5px;
   text-align: center;
   padding: 15px;
   border: 1px solid white;
   border-radius: 15px;
+  width: 200px;
+  height: 200px;
 }
-.skills-container .skills-category .skills-list .skill-item .skill-icon {
-  width: 100px;
-  fill: aliceblue;
+.skills-container .skills-category .skills-list .skill-item .skill-gradient {
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3; /* Partie supérieure (dégradé) */
+  background-size: 300% 100%;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  -webkit-animation: move-gradient 3s linear infinite;
+          animation: move-gradient 3s linear infinite;
 }
-.skills-container .skills-category .skills-list .skill-label {
-  font-size: 1.2rem;
+.skills-container .skills-category .skills-list .skill-item .skill-label {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  font-size: 1.25rem;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+.skills-container .skills-category .skills-list .skill-item.html5 .skill-gradient {
+  background-image: -webkit-gradient(linear, left top, right top, from(rgb(255, 60, 0)), color-stop(#F5A600), to(rgb(255, 60, 0)));
+  background-image: linear-gradient(to right, rgb(255, 60, 0), #F5A600, rgb(255, 60, 0));
+  mask-image: url("./logos/html.svg");
+  -webkit-mask-image: url("./logos/html.svg");
+}
+.skills-container .skills-category .skills-list .skill-item.css3 .skill-gradient {
+  background-image: -webkit-gradient(linear, left top, right top, from(#0506EF), color-stop(#70d7f7), to(#0506EF));
+  background-image: linear-gradient(to right, #0506EF, #70d7f7, #0506EF);
+  mask-image: url("./logos/css3.svg");
+  -webkit-mask-image: url("./logos/css3.svg");
+}
+.skills-container .skills-category .skills-list .skill-item.sass .skill-gradient {
+  background-image: -webkit-gradient(linear, left top, right top, from(#F03C98), color-stop(#F08CBF), to(#F03C98));
+  background-image: linear-gradient(to right, #F03C98, #F08CBF, #F03C98);
+  mask-image: url("./logos/sass.svg");
+  -webkit-mask-image: url("./logos/sass.svg");
+}
+.skills-container .skills-category .skills-list .skill-item.javascript .skill-gradient {
+  mask-image: url("./logos/js.svg");
+  -webkit-mask-image: url("./logos/js.svg");
+}
+
+@-webkit-keyframes move-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}
+
+@keyframes move-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
 }/*# sourceMappingURL=index.css.map */
