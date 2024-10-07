@@ -356,9 +356,19 @@ button {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 50px;
 }
 .skills-container .skills-category {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   margin-bottom: 20px;
 }
 .skills-container .skills-category h3 {
@@ -369,9 +379,11 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  gap: 15px;
+  overflow: hidden; /* Masquer les éléments au-delà des 6 visibles */
+  width: 900px; /* Ajuste cette largeur selon la taille de chaque item visible */
+  position: relative;
+  /* Optionnel : Ajuster pour un responsive */
+  /* width: clamp(30rem, 28rem + 8vw, 60rem); */
 }
 .skills-container .skills-category .skills-list .skill-item {
   display: -webkit-box;
@@ -382,11 +394,15 @@ button {
       -ms-flex-direction: column;
           flex-direction: column;
   text-align: center;
+  gap: 20px;
   padding: clamp(0.25rem, -0.2145rem + 1.4865vw, 0.9375rem);
   border: 1px solid white;
   border-radius: 15px;
-  width: clamp(5rem, 2.4662rem + 8.1081vw, 8.75rem);
-  height: clamp(5rem, 2.4662rem + 8.1081vw, 8.75rem);
+  width: clamp(5rem, 2.4662rem + 8.1081vw, 8.75rem); /* Taille de chaque item */
+  height: 140px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0; /* Empêche les items de rétrécir pour rester visibles */
+  margin-right: 15px; /* Espace entre les items */
 }
 .skills-container .skills-category .skills-list .skill-item .skill-gradient {
   -webkit-box-flex: 3;
@@ -406,7 +422,7 @@ button {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  font-size: clamp(0.6rem, 0.2622rem + 1.0811vw, 1.1rem);
+  font-size: 0.8rem;
   font-weight: bold;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -419,62 +435,62 @@ button {
           align-items: flex-end;
 }
 .skills-container .skills-category .skills-list .skill-item.html5 .skill-gradient {
-  background-image: -webkit-gradient(linear, left top, right top, from(rgb(255, 60, 0)), color-stop(#F5A600), to(rgb(255, 60, 0)));
-  background-image: linear-gradient(to right, rgb(255, 60, 0), #F5A600, rgb(255, 60, 0));
+  background-image: -webkit-gradient(linear, left top, right top, from(rgb(255, 60, 0)), color-stop(#f5a600), to(rgb(255, 60, 0)));
+  background-image: linear-gradient(to right, rgb(255, 60, 0), #f5a600, rgb(255, 60, 0));
   mask-image: url("./logos/html.svg");
   -webkit-mask-image: url("./logos/html.svg");
 }
 .skills-container .skills-category .skills-list .skill-item.css3 .skill-gradient {
-  background-image: -webkit-gradient(linear, left top, right top, from(#0506EF), color-stop(#70d7f7), to(#0506EF));
-  background-image: linear-gradient(to right, #0506EF, #70d7f7, #0506EF);
+  background-image: -webkit-gradient(linear, left top, right top, from(#0506ef), color-stop(#70d7f7), to(#0506ef));
+  background-image: linear-gradient(to right, #0506ef, #70d7f7, #0506ef);
   mask-image: url("./logos/css3.svg");
   -webkit-mask-image: url("./logos/css3.svg");
 }
 .skills-container .skills-category .skills-list .skill-item.sass .skill-gradient {
-  background-image: -webkit-gradient(linear, left top, right top, from(#F03C98), color-stop(#E487EB), to(#F03C98));
-  background-image: linear-gradient(to right, #F03C98, #E487EB, #F03C98);
+  background-image: -webkit-gradient(linear, left top, right top, from(#f03c98), color-stop(#e487eb), to(#f03c98));
+  background-image: linear-gradient(to right, #f03c98, #e487eb, #f03c98);
   mask-image: url("./logos/sass.svg");
   -webkit-mask-image: url("./logos/sass.svg");
 }
 .skills-container .skills-category .skills-list .skill-item.javascript .skill-gradient {
-  background-image: -webkit-gradient(linear, left top, right top, from(#111409), color-stop(#EBDF00), to(#111409));
-  background-image: linear-gradient(to right, #111409, #EBDF00, #111409);
+  background-image: -webkit-gradient(linear, left top, right top, from(#111409), color-stop(#ebdf00), to(#111409));
+  background-image: linear-gradient(to right, #111409, #ebdf00, #111409);
   mask-image: url("./logos/js.svg");
   -webkit-mask-image: url("./logos/js.svg");
 }
 .skills-container .skills-category .skills-list .skill-item.react .skill-gradient {
-  background-image: -webkit-gradient(linear, left top, right top, from(#2F56E0), color-stop(#01DCE6), to(#2F56E0));
-  background-image: linear-gradient(to right, #2F56E0, #01DCE6, #2F56E0);
+  background-image: -webkit-gradient(linear, left top, right top, from(#2f56e0), color-stop(#01dce6), to(#2f56e0));
+  background-image: linear-gradient(to right, #2f56e0, #01dce6, #2f56e0);
   mask-image: url("./logos/react.svg");
   -webkit-mask-image: url("./logos/react.svg");
 }
 .skills-container .skills-category .skills-list .skill-item.redux .skill-gradient {
-  background-image: -webkit-gradient(linear, left top, right top, from(#A500E6), color-stop(#E02FD2), to(#A500E6));
-  background-image: linear-gradient(to right, #A500E6, #E02FD2, #A500E6);
+  background-image: -webkit-gradient(linear, left top, right top, from(#a500e6), color-stop(#e02fd2), to(#a500e6));
+  background-image: linear-gradient(to right, #a500e6, #e02fd2, #a500e6);
   mask-image: url("./logos/redux.svg");
   -webkit-mask-image: url("./logos/redux.svg");
 }
 .skills-container .skills-category .skills-list .skill-item.next-js .skill-gradient {
-  background-image: -webkit-gradient(linear, left top, right top, from(black), color-stop(#2F56E0), to(black));
-  background-image: linear-gradient(to right, black, #2F56E0, black);
+  background-image: -webkit-gradient(linear, left top, right top, from(black), color-stop(#2f56e0), to(black));
+  background-image: linear-gradient(to right, black, #2f56e0, black);
   mask-image: url("./logos/next.svg");
   -webkit-mask-image: url("./logos/next.svg");
 }
 .skills-container .skills-category .skills-list .skill-item.vite .skill-gradient {
-  background-image: -webkit-gradient(linear, left top, right top, from(#2F56E0), color-stop(#E02FD2), color-stop(#EBDF00), color-stop(#E02FD2), to(#2F56E0));
-  background-image: linear-gradient(to right, #2F56E0, #E02FD2, #EBDF00, #E02FD2, #2F56E0);
+  background-image: -webkit-gradient(linear, left top, right top, from(#2f56e0), color-stop(#e02fd2), color-stop(#ebdf00), color-stop(#e02fd2), to(#2f56e0));
+  background-image: linear-gradient(to right, #2f56e0, #e02fd2, #ebdf00, #e02fd2, #2f56e0);
   mask-image: url("./logos/vite.svg");
   -webkit-mask-image: url("./logos/vite.svg");
 }
 .skills-container .skills-category .skills-list .skill-item.tailwind .skill-gradient {
-  background-image: -webkit-gradient(linear, left top, right top, from(#2F56E0), color-stop(#01DCE6), to(#2F56E0));
-  background-image: linear-gradient(to right, #2F56E0, #01DCE6, #2F56E0);
+  background-image: -webkit-gradient(linear, left top, right top, from(#2f56e0), color-stop(#01dce6), to(#2f56e0));
+  background-image: linear-gradient(to right, #2f56e0, #01dce6, #2f56e0);
   mask-image: url("./logos/tailwind.svg");
   -webkit-mask-image: url("./logos/tailwind.svg");
 }
 .skills-container .skills-category .skills-list .skill-item.material-ui .skill-gradient {
-  background-image: -webkit-gradient(linear, left top, right top, from(black), color-stop(#2F56E0), to(black));
-  background-image: linear-gradient(to right, black, #2F56E0, black);
+  background-image: -webkit-gradient(linear, left top, right top, from(black), color-stop(#2f56e0), to(black));
+  background-image: linear-gradient(to right, black, #2f56e0, black);
   mask-image: url("./logos/material-ui.svg");
   -webkit-mask-image: url("./logos/material-ui.svg");
 }
@@ -485,32 +501,32 @@ button {
   -webkit-mask-image: url("./logos/responsive.svg");
 }
 .skills-container .skills-category .skills-list .skill-item.node-js .skill-gradient {
-  background-image: -webkit-gradient(linear, left top, right top, from(black), color-stop(#00E108), to(black));
-  background-image: linear-gradient(to right, black, #00E108, black);
+  background-image: -webkit-gradient(linear, left top, right top, from(black), color-stop(#00e108), to(black));
+  background-image: linear-gradient(to right, black, #00e108, black);
   mask-image: url("./logos/nodejs.svg");
   -webkit-mask-image: url("./logos/nodejs.svg");
 }
 .skills-container .skills-category .skills-list .skill-item.express-js .skill-gradient {
-  background-image: -webkit-gradient(linear, left top, right top, from(#111409), color-stop(#EBDF00), to(#111409));
-  background-image: linear-gradient(to right, #111409, #EBDF00, #111409);
+  background-image: -webkit-gradient(linear, left top, right top, from(#111409), color-stop(#ebdf00), to(#111409));
+  background-image: linear-gradient(to right, #111409, #ebdf00, #111409);
   mask-image: url("./logos/express.svg");
   -webkit-mask-image: url("./logos/express.svg");
 }
 .skills-container .skills-category .skills-list .skill-item.mongodb .skill-gradient {
-  background-image: -webkit-gradient(linear, left top, right top, from(#00A666), color-stop(#88E02F), to(#00A666));
-  background-image: linear-gradient(to right, #00A666, #88E02F, #00A666);
+  background-image: -webkit-gradient(linear, left top, right top, from(#00a666), color-stop(#88e02f), to(#00a666));
+  background-image: linear-gradient(to right, #00a666, #88e02f, #00a666);
   mask-image: url("./logos/mongodb.svg");
   -webkit-mask-image: url("./logos/mongodb.svg");
 }
 .skills-container .skills-category .skills-list .skill-item.python .skill-gradient {
-  background-image: -webkit-gradient(linear, left top, right top, from(#2F56E0), color-stop(#EBDF00), to(#2F56E0));
-  background-image: linear-gradient(to right, #2F56E0, #EBDF00, #2F56E0);
+  background-image: -webkit-gradient(linear, left top, right top, from(#2f56e0), color-stop(#ebdf00), to(#2f56e0));
+  background-image: linear-gradient(to right, #2f56e0, #ebdf00, #2f56e0);
   mask-image: url("./logos/python.svg");
   -webkit-mask-image: url("./logos/python.svg");
 }
 .skills-container .skills-category .skills-list .skill-item.django .skill-gradient {
-  background-image: -webkit-gradient(linear, left top, right top, from(black), color-stop(#004D30), to(black));
-  background-image: linear-gradient(to right, black, #004D30, black);
+  background-image: -webkit-gradient(linear, left top, right top, from(black), color-stop(#004d30), to(black));
+  background-image: linear-gradient(to right, black, #004d30, black);
   mask-image: url("./logos/django.svg");
   -webkit-mask-image: url("./logos/django.svg");
 }
@@ -521,20 +537,20 @@ button {
   -webkit-mask-image: url("./logos/flask.svg");
 }
 .skills-container .skills-category .skills-list .skill-item.sqlite .skill-gradient {
-  background-image: -webkit-gradient(linear, left top, right top, from(#070B87), color-stop(#2F56E0), to(#070B87));
-  background-image: linear-gradient(to right, #070B87, #2F56E0, #070B87);
+  background-image: -webkit-gradient(linear, left top, right top, from(#070b87), color-stop(#2f56e0), to(#070b87));
+  background-image: linear-gradient(to right, #070b87, #2f56e0, #070b87);
   mask-image: url("./logos/sqlite.svg");
   -webkit-mask-image: url("./logos/sqlite.svg");
 }
 .skills-container .skills-category .skills-list .skill-item.vs-code .skill-gradient {
-  background-image: -webkit-gradient(linear, left top, right top, from(#2F56E0), color-stop(#01DCE6), to(#2F56E0));
-  background-image: linear-gradient(to right, #2F56E0, #01DCE6, #2F56E0);
+  background-image: -webkit-gradient(linear, left top, right top, from(#2f56e0), color-stop(#01dce6), to(#2f56e0));
+  background-image: linear-gradient(to right, #2f56e0, #01dce6, #2f56e0);
   mask-image: url("./logos/vscode.svg");
   -webkit-mask-image: url("./logos/vscode.svg");
 }
 .skills-container .skills-category .skills-list .skill-item.pycharm .skill-gradient {
-  background-image: -webkit-gradient(linear, left top, right top, from(#2F56E0), color-stop(#36C329), color-stop(#EBDF00), color-stop(#36C329), to(#2F56E0));
-  background-image: linear-gradient(to right, #2F56E0, #36C329, #EBDF00, #36C329, #2F56E0);
+  background-image: -webkit-gradient(linear, left top, right top, from(#2f56e0), color-stop(#36c329), color-stop(#ebdf00), color-stop(#36c329), to(#2f56e0));
+  background-image: linear-gradient(to right, #2f56e0, #36c329, #ebdf00, #36c329, #2f56e0);
   mask-image: url("./logos/pycharm.svg");
   -webkit-mask-image: url("./logos/pycharm.svg");
 }
@@ -545,26 +561,26 @@ button {
   -webkit-mask-image: url("./logos/github.svg");
 }
 .skills-container .skills-category .skills-list .skill-item.postman .skill-gradient {
-  background-image: -webkit-gradient(linear, left top, right top, from(rgb(255, 60, 0)), color-stop(#F5A600), to(rgb(255, 60, 0)));
-  background-image: linear-gradient(to right, rgb(255, 60, 0), #F5A600, rgb(255, 60, 0));
+  background-image: -webkit-gradient(linear, left top, right top, from(rgb(255, 60, 0)), color-stop(#f5a600), to(rgb(255, 60, 0)));
+  background-image: linear-gradient(to right, rgb(255, 60, 0), #f5a600, rgb(255, 60, 0));
   mask-image: url("./logos/postman.svg");
   -webkit-mask-image: url("./logos/postman.svg");
 }
 .skills-container .skills-category .skills-list .skill-item.figma .skill-gradient {
-  background-image: -webkit-gradient(linear, left top, right top, from(#2F56E0), color-stop(#36C329), color-stop(red), color-stop(#E02FD2), color-stop(red), color-stop(#36C329), to(#2F56E0));
-  background-image: linear-gradient(to right, #2F56E0, #36C329, red, #E02FD2, red, #36C329, #2F56E0);
+  background-image: -webkit-gradient(linear, left top, right top, from(#2f56e0), color-stop(#36c329), color-stop(red), color-stop(#e02fd2), color-stop(red), color-stop(#36c329), to(#2f56e0));
+  background-image: linear-gradient(to right, #2f56e0, #36c329, red, #e02fd2, red, #36c329, #2f56e0);
   mask-image: url("./logos/figma.svg");
   -webkit-mask-image: url("./logos/figma.svg");
 }
 .skills-container .skills-category .skills-list .skill-item.slack .skill-gradient {
-  background-image: -webkit-gradient(linear, left top, right top, from(#2F56E0), color-stop(#36C329), color-stop(red), color-stop(#EBDF00), color-stop(red), color-stop(#36C329), to(#2F56E0));
-  background-image: linear-gradient(to right, #2F56E0, #36C329, red, #EBDF00, red, #36C329, #2F56E0);
+  background-image: -webkit-gradient(linear, left top, right top, from(#2f56e0), color-stop(#36c329), color-stop(red), color-stop(#ebdf00), color-stop(red), color-stop(#36c329), to(#2f56e0));
+  background-image: linear-gradient(to right, #2f56e0, #36c329, red, #ebdf00, red, #36c329, #2f56e0);
   mask-image: url("./logos/slack.svg");
   -webkit-mask-image: url("./logos/slack.svg");
 }
 .skills-container .skills-category .skills-list .skill-item.linux .skill-gradient {
-  background-image: -webkit-gradient(linear, left top, right top, from(#111409), color-stop(#EBDF00), to(#111409));
-  background-image: linear-gradient(to right, #111409, #EBDF00, #111409);
+  background-image: -webkit-gradient(linear, left top, right top, from(#111409), color-stop(#ebdf00), to(#111409));
+  background-image: linear-gradient(to right, #111409, #ebdf00, #111409);
   mask-image: url("./logos/linux.svg");
   -webkit-mask-image: url("./logos/linux.svg");
 }
