@@ -20,28 +20,29 @@
         display: flex;
         flex-direction: column;
         text-align: center;
-        padding: 15px;
+        padding: clamp(0.25rem, -0.2145rem + 1.4865vw, 0.9375rem);
+        // padding: 15px;
         border: 1px solid white;
         border-radius: 15px;
-        width: 200px;
-        height: 200px;
+        width: clamp(5rem, 2.4662rem + 8.1081vw, 8.75rem);
+        height: clamp(5rem, 2.4662rem + 8.1081vw, 8.75rem);
         
         // Contrôle la taille des parties
         .skill-gradient {
           flex: 3; /* Partie supérieure (dégradé) */
-          background-size: 300% 100%;
+          background-size: 400% 100%;
           mask-repeat: no-repeat;
           mask-position: center;
           mask-size: contain;
           -webkit-mask-repeat: no-repeat;
           -webkit-mask-position: center;
           -webkit-mask-size: contain;
-          animation: move-gradient 3s linear infinite;
+          animation: move-gradient 6s linear infinite;
         }
 
         .skill-label {
           flex: 1;
-          font-size: 1.25rem;
+          font-size: clamp(0.6rem, 0.2622rem + 1.0811vw, 1.1rem);
           font-weight: bold;
           display: flex; 
           justify-content: center;
@@ -62,14 +63,122 @@
       }
 
       .skill-item.sass .skill-gradient {
-        background-image: linear-gradient(to right, #F03C98, #F08CBF, #F03C98);
+        background-image: linear-gradient(to right, #F03C98, #E487EB, #F03C98);
         mask-image: url("./logos/sass.svg");
         -webkit-mask-image: url("./logos/sass.svg");
       }
 
       .skill-item.javascript .skill-gradient {
+        background-image: linear-gradient(to right, #111409, #EBDF00, #111409);
         mask-image: url("./logos/js.svg");
         -webkit-mask-image: url("./logos/js.svg");
+      }
+
+       .skill-item.react .skill-gradient {
+        background-image: linear-gradient(to right, #2F56E0, #01DCE6, #2F56E0);
+        mask-image: url("./logos/react.svg");
+        -webkit-mask-image: url("./logos/react.svg");
+      }
+
+      .skill-item.redux .skill-gradient {
+        background-image: linear-gradient(to right, #A500E6, #E02FD2, #A500E6);
+        mask-image: url("./logos/redux.svg");
+        -webkit-mask-image: url("./logos/redux.svg");
+      }
+      .skill-item.next-js .skill-gradient {
+        background-image: linear-gradient(to right, black, #2F56E0, black);
+        mask-image: url("./logos/next.svg");
+        -webkit-mask-image: url("./logos/next.svg");
+      }
+      .skill-item.vite .skill-gradient {
+        background-image: linear-gradient(to right, #2F56E0, #E02FD2, #EBDF00,  #E02FD2, #2F56E0);
+        mask-image: url("./logos/vite.svg");
+        -webkit-mask-image: url("./logos/vite.svg");
+      }
+      .skill-item.tailwind .skill-gradient {
+        background-image: linear-gradient(to right, #2F56E0, #01DCE6, #2F56E0);
+        mask-image: url("./logos/tailwind.svg");
+        -webkit-mask-image: url("./logos/tailwind.svg");
+      }
+      .skill-item.material-ui .skill-gradient {
+        background-image: linear-gradient(to right, black, #2F56E0, black);
+        mask-image: url("./logos/material-ui.svg");
+        -webkit-mask-image: url("./logos/material-ui.svg");
+      }
+      .skill-item.ux-ui .skill-gradient {
+        background-image: linear-gradient(to right, black, #aaa, black);
+        mask-image: url("./logos/responsive.svg");
+        -webkit-mask-image: url("./logos/responsive.svg");
+      }
+      .skill-item.node-js .skill-gradient {
+        background-image: linear-gradient(to right, black, #00E108, black);
+        mask-image: url("./logos/nodejs.svg");
+        -webkit-mask-image: url("./logos/nodejs.svg");
+      }
+      .skill-item.express-js .skill-gradient {
+        background-image: linear-gradient(to right, #111409, #EBDF00, #111409);
+        mask-image: url("./logos/express.svg");
+        -webkit-mask-image: url("./logos/express.svg");
+      }
+      .skill-item.mongodb .skill-gradient {
+        background-image: linear-gradient(to right, #00A666, #88E02F, #00A666);
+        mask-image: url("./logos/mongodb.svg");
+        -webkit-mask-image: url("./logos/mongodb.svg");
+      }
+      .skill-item.python .skill-gradient {
+        background-image: linear-gradient(to right, #2F56E0, #EBDF00, #2F56E0);
+        mask-image: url("./logos/python.svg");
+        -webkit-mask-image: url("./logos/python.svg");
+      }
+      .skill-item.django .skill-gradient {
+        background-image: linear-gradient(to right, black, #004D30, black);
+        mask-image: url("./logos/django.svg");
+        -webkit-mask-image: url("./logos/django.svg");
+      }
+      .skill-item.flask .skill-gradient {
+        background-image: linear-gradient(to right, black, #aaa, black);
+        mask-image: url("./logos/flask.svg");
+        -webkit-mask-image: url("./logos/flask.svg");
+      }
+      .skill-item.sqlite .skill-gradient {
+        background-image: linear-gradient(to right, #070B87, #2F56E0, #070B87);
+        mask-image: url("./logos/sqlite.svg");
+        -webkit-mask-image: url("./logos/sqlite.svg");
+      }
+      .skill-item.vs-code .skill-gradient {
+        background-image: linear-gradient(to right, #2F56E0, #01DCE6, #2F56E0);
+        mask-image: url("./logos/vscode.svg");
+        -webkit-mask-image: url("./logos/vscode.svg");
+      }
+      .skill-item.pycharm .skill-gradient {
+        background-image: linear-gradient(to right, #2F56E0, #36C329, #EBDF00,  #36C329, #2F56E0);
+        mask-image: url("./logos/pycharm.svg");
+        -webkit-mask-image: url("./logos/pycharm.svg");
+      }
+      .skill-item.github .skill-gradient {
+        background-image: linear-gradient(to right, black, #aaa, black);
+        mask-image: url("./logos/github.svg");
+        -webkit-mask-image: url("./logos/github.svg");
+      }
+      .skill-item.postman .skill-gradient {
+        background-image: linear-gradient(to right, rgb(255, 60, 0), #F5A600, rgb(255, 60, 0));
+        mask-image: url("./logos/postman.svg");
+        -webkit-mask-image: url("./logos/postman.svg");
+      }
+      .skill-item.figma .skill-gradient {
+       background-image: linear-gradient(to right, #2F56E0, #36C329, red, #E02FD2, red,  #36C329, #2F56E0);
+        mask-image: url("./logos/figma.svg");
+        -webkit-mask-image: url("./logos/figma.svg");
+      }
+      .skill-item.slack .skill-gradient {
+       background-image: linear-gradient(to right, #2F56E0, #36C329, red, #EBDF00, red,  #36C329, #2F56E0);
+        mask-image: url("./logos/slack.svg");
+        -webkit-mask-image: url("./logos/slack.svg");
+      }
+      .skill-item.linux .skill-gradient {
+        background-image: linear-gradient(to right, #111409, #EBDF00, #111409);
+        mask-image: url("./logos/linux.svg");
+        -webkit-mask-image: url("./logos/linux.svg");
       }
     }
   }
@@ -80,7 +189,7 @@
     background-position: 0% 50%;
   }
   100% {
-    background-position: 300% 50%;
+    background-position: 400% 50%;
   }
 }
 

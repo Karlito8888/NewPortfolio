@@ -8,7 +8,7 @@ const SkillsCategory = ({ title, skills }) => {
         {skills.map((skill, index) => {
           const className = `skill-item ${skill.label
             .toLowerCase()
-            .replace(/\s+/g, "-")}`;
+            .replace(/[^a-z0-9]+/g, "-")}`;
           return (
             <div
               key={index}
@@ -31,7 +31,6 @@ SkillsCategory.propTypes = {
   title: PropTypes.string.isRequired,
   skills: PropTypes.arrayOf(
     PropTypes.shape({
-      icon: PropTypes.node.isRequired,
       label: PropTypes.string.isRequired,
     })
   ).isRequired,
