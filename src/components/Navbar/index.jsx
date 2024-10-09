@@ -1,39 +1,116 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
+import NavItem from "../NavItem";
+import { CvLink, GithubLink, LinkedInLink } from "../NavLinks";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faUser,
+  faLaptopCode,
+  faGraduationCap,
+  faEnvelope,
+  faBars,
+  faTimes,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
   const [activeTab, setActiveTab] = useState("À propos");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showNavLinks, setShowNavLinks] = useState(window.innerWidth < 600);
+  const [showMenuIcon, setShowMenuIcon] = useState(window.innerWidth < 760);
+  const [isMobile, setIsMobile] = useState(
+    window.innerWidth >= 760 && window.innerWidth < 1000
+  );
 
   const listnav = useMemo(
-    () => ["À propos", "Compétences", "Projets", "Contact"],
+    () => [
+      { name: "À propos", icon: faUser },
+      { name: "Projets", icon: faLaptopCode },
+      { name: "Parcours", icon: faGraduationCap },
+      { name: "Contact", icon: faEnvelope },
+    ],
     []
   );
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth >= 760 && window.innerWidth < 1000);
+      setShowMenuIcon(window.innerWidth < 760);
+      setShowNavLinks(window.innerWidth < 600);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const handleTabClick = (item) => {
-    setActiveTab(item);
+    setActiveTab(item.name || item);
+    setIsMenuOpen(false);
+  };
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
-    <div className="navbar">
-      <nav>
-        <ul>
-          {listnav.map((item) => (
-            <li key={item}>
-              <a
-                href={`#${
-                  item === "À propos" ? "a-propos" : item.toLowerCase()
-                }`}
-                aria-label={item}
-                className={activeTab === item ? "active" : ""}
+    <>
+      <div className="navbar">
+        <nav>
+          <ul>
+            {listnav.map((item) => (
+              <NavItem
+                key={item.name || item}
+                item={item}
+                isActive={activeTab === item.name}
                 onClick={() => handleTabClick(item)}
-              >
-                {item}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    </div>
+                isMobile={isMobile}
+              />
+            ))}
+            {!showNavLinks && (
+              <>
+                <CvLink onClick={() => handleTabClick("CV")} />
+                <GithubLink />
+                <LinkedInLink />
+              </>
+            )}
+            {showMenuIcon && (
+              <div className="menu-icon">
+                <FontAwesomeIcon
+                  icon={isMenuOpen ? faTimes : faBars}
+                  size="2xl"
+                  onClick={toggleMenu}
+                  className="menu-icon"
+                />
+              </div>
+            )}
+          </ul>
+        </nav>
+      </div>
+
+      {isMenuOpen && (
+        <div className={`dropdown-nav ${isMenuOpen ? "active" : ""}`}>
+          <nav>
+            <ul>
+              {listnav.map((item) => (
+                <NavItem
+                  key={item.name || item}
+                  item={item}
+                  isActive={activeTab === item.name}
+                  onClick={() => handleTabClick(item)}
+                  isMobile={isMobile}
+                />
+              ))}
+              {showNavLinks && (
+                <>
+                  <CvLink onClick={() => handleTabClick("CV")} />
+                  <GithubLink />
+                  <LinkedInLink />
+                </>
+              )}
+            </ul>
+          </nav>
+        </div>
+      )}
+    </>
   );
 };
 
 export default Navbar;
+

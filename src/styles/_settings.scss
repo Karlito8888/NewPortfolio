@@ -15,7 +15,9 @@
   --color-toggle-active-gradient-end: #70d7f7; /* Dégradé du toggle actif */
 }
 
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -31,11 +33,13 @@ body {
   width: 100%;
   max-width: 1920px;
   margin-inline: auto;
-  padding-inline: 50px;
+  padding-inline: clamp(0.75rem, -0.0417rem + 3.1667vw, 3.125rem);
   font-size: 16px;
-  font-family: 'Nimbus Mono PS', 'Courier New', monospace;
+  font-family: "Nimbus Mono PS", "Courier New", monospace;
   letter-spacing: 1px;
   transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+  overflow-x: clip;
 
   &::before {
     position: fixed;
@@ -43,9 +47,7 @@ body {
     height: auto;
     aspect-ratio: 1/1;
     content: "";
-    background-image: linear-gradient(
-      to right, transparent, #70d7f7
-    );
+    background-image: linear-gradient(to right, transparent, #70d7f7);
     z-index: -1;
     top: -100px;
     left: calc(50% - 100px);
@@ -85,11 +87,11 @@ a.active {
   font-weight: bold;
 }
 
-[data-theme='dark'] a {
+[data-theme="dark"] a {
   color: var(--color-link-dark);
 }
 
-[data-theme='light'] a {
+[data-theme="light"] a {
   color: var(--color-link-light);
 }
 
@@ -111,7 +113,7 @@ button {
 }
 
 @keyframes gradientAnimation {
-   0% {
+  0% {
     background-position: 0% 50%;
   }
   100% {

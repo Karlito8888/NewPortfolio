@@ -3,10 +3,6 @@ const About = () => {
     <>
       <section className="a_propos-container" id="a-propos">
         <div className="content">
-          {/* <div className="name">
-            <h2>Charles BOURGAULT</h2>
-            <h3>Développeur Web</h3>
-          </div> */}
           <div className="description">
             <p>
               Je suis passionné de Développement Web, toujours curieux
@@ -14,7 +10,7 @@ const About = () => {
               compétences.
               <br />
               <br />
-              Mon cœur balance entre le front-end et le back-end, ce qui me
+              Mon cœur balance entre le Front-End et le Back-End, ce qui me
               permet de créer des applications complètes et fonctionnelles.
               <br />
               <br />
@@ -30,13 +26,6 @@ const About = () => {
               créations.
             </p>
           </div>
-          {/* <a
-            href="./CV_Charles_BOURGAULT.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Mon CV <FontAwesomeIcon icon={faDownload} />
-          </a> */}
         </div>
         <div className="picture">
           <figure>

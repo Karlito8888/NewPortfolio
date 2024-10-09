@@ -1,68 +1,82 @@
 .dark_mode {
-    margin-top: -20px;
-    margin-left: 10px;
-}
-
-.dark_mode_label {
-    width: 65px;
+  height: 34px;
+  width: 74px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: #70d7f7;
+  border-radius: 50px;
+  }
+  .dark_mode_label {
     height: 30px;
+  width: 70px;
     position: relative;
     display: block;
     background: var(--color-toggle-bg);
     border-radius: 200px;
     box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4),
-        inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+      inset 0px -5px 15px rgba(255, 255, 255, 0.4);
     cursor: pointer;
     transition: 0.3s;
-}
-.dark_mode_label:after {
+  }
+  .dark_mode_label:after {
     content: "";
     width: 25px;
     height: 25px;
     position: absolute;
     top: 3px;
-    left: 3px;
-     background: linear-gradient(180deg, var(--color-toggle-gradient-start), var(--color-toggle-gradient-end));
+    left: 4px;
+    background: linear-gradient(
+      180deg,
+      var(--color-toggle-gradient-start),
+      var(--color-toggle-gradient-end)
+    );
     border-radius: 180px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
     transition: 0.3s;
-}
-.dark_mode_input {
+  }
+  .dark_mode_input {
     width: 0;
     height: 0;
     visibility: hidden;
-}
-.dark_mode_input:checked + .dark_mode_label {
+  }
+  .dark_mode_input:checked + .dark_mode_label {
     background: var(--color-toggle-active);
-}
-.dark_mode_input:checked + .dark_mode_label:after {
-    left: 62px;
+  }
+  .dark_mode_input:checked + .dark_mode_label:after {
+    left: 66px;
     transform: translateX(-100%);
-  background: linear-gradient(180deg, var(--color-toggle-active-gradient-start), var(--color-toggle-active-gradient-end));
-}
-.dark_mode_label:active:after {
+    background: linear-gradient(
+      180deg,
+      var(--color-toggle-active-gradient-start),
+      var(--color-toggle-active-gradient-end)
+    );
+  }
+  .dark_mode_label:active:after {
     width: 30px;
-}
+  }
 
-.dark_mode_label img {
+  .dark_mode_label img {
     position: absolute;
     width: 20px;
     top: 5px;
-    z-index: 100;
-}
-.dark_mode_label img.sun {
-    left: 5px;
+    z-index: 2;
+  }
+  .dark_mode_label img.sun {
+    left: 6px;
     fill: var(--color-text-dark);
     transition: 0.3s;
-}
-.dark_mode_label img.moon {
-    left: 40px;
+  }
+  .dark_mode_label img.moon {
+    right: 6px;
     fill: #7e7e7e;
     transition: 0.3s;
-}
-.dark_mode_input:checked + .dark_mode_label img.sun {
+  }
+  .dark_mode_input:checked + .dark_mode_label img.sun {
     fill: #7e7e7e;
-}
-.dark_mode_input:checked + .dark_mode_label img.moon {
+  }
+  .dark_mode_input:checked + .dark_mode_label img.moon {
     fill: var(--color-text-dark);
-}
+  }
+
