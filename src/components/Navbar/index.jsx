@@ -77,6 +77,7 @@ const Navbar = () => {
                   size="2xl"
                   onClick={toggleMenu}
                   className="menu-icon"
+                  style={{ cursor: "pointer" }}
                 />
               </div>
             )}
@@ -84,9 +85,10 @@ const Navbar = () => {
         </nav>
       </div>
 
-      {isMenuOpen && (
-        <div className={`dropdown-nav ${isMenuOpen ? "active" : ""}`}>
-          <nav>
+      {/* L'état actif de la dropdown-nav */}
+      <div className={`dropdown-nav ${isMenuOpen ? "active" : ""}`}>
+        <nav>
+          <div className="listnav-container">
             <ul>
               {listnav.map((item) => (
                 <NavItem
@@ -97,6 +99,11 @@ const Navbar = () => {
                   isMobile={isMobile}
                 />
               ))}
+            </ul>
+          </div>
+
+          <div className="navlinks-container">
+            <ul>
               {showNavLinks && (
                 <>
                   <CvLink onClick={() => handleTabClick("CV")} />
@@ -105,12 +112,13 @@ const Navbar = () => {
                 </>
               )}
             </ul>
-          </nav>
-        </div>
-      )}
+          </div>
+        </nav>
+      </div>
     </>
   );
 };
 
 export default Navbar;
+
 

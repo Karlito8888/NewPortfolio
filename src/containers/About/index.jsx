@@ -2,6 +2,7 @@ const About = () => {
   return (
     <>
       <section className="a_propos-container" id="a-propos">
+        <h2 className="about-title">À propos de moi</h2>
         <div className="content">
           <div className="description">
             <p>
@@ -26,15 +27,15 @@ const About = () => {
               créations.
             </p>
           </div>
-        </div>
-        <div className="picture">
-          <figure>
-            <img src="./profile-pic.png" alt="Photo de Charles BOURGAULT" />
-            <figcaption>
-              <h2>Charles BOURGAULT</h2>
-              <h3>Développeur Web</h3>
-            </figcaption>
-          </figure>
+          <div className="picture">
+            <figure>
+              <img src="./profile-pic.png" alt="Photo de Charles BOURGAULT" />
+              <figcaption>
+                <h2>Charles BOURGAULT</h2>
+                <h3>Développeur Web</h3>
+              </figcaption>
+            </figure>
+          </div>
         </div>
       </section>
     </>

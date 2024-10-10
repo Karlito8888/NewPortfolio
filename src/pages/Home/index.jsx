@@ -1,5 +1,6 @@
 import Header from "../../containers/Header";
 import About from "../../containers/About";
+import Projects from "../../containers/Projects";
 
 const Home = () => {
   return (
@@ -7,6 +8,7 @@ const Home = () => {
       <Header />
       <main>
       <About />
+      <Projects />
       </main>
     </>
   );

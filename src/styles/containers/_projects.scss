@@ -1,0 +1,140 @@
+.projects-container {
+  min-height: 100vh;
+  display: grid;
+  align-content: space-evenly;
+
+  .projects-title {
+    font-family: "Allura", cursive;
+    font-size: 4rem;
+    margin-left: 5%;
+  }
+
+  .projects-content {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    padding-block: 40px;
+
+    .project-card {
+      width: 100%;
+      height: 500px;
+      border: 1px solid #cccccc3a;
+      background-color: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(1px);
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out, border 0.2s ease-in-out,
+        box-shadow 0.2s ease-in-out;
+
+      &:hover {
+        transform: scale(1.02);
+        border: 1px solid #70d7f7;
+        box-shadow: 0 4px 12px #70d7f7;
+      }
+
+      .theme-logo {
+        width: 50px;
+        height: auto;
+        margin-bottom: 1rem;
+      }
+
+      .carousel-container {
+        position: relative;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16/9;
+        padding: 2px;
+        background: black;
+        margin-bottom: 30px;
+        border-radius: 8px;
+
+        .carousel-img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 7px;
+          opacity: 0;
+          transition: opacity 0.5s ease-in-out;
+        }
+
+        .carousel-img.active {
+          opacity: 1; /* Rendre l'image active visible */
+        }
+      }
+      .carousel-container::after,
+      .carousel-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(var(--rotate), #70d7f7, transparent);
+        border-radius: 8px;
+        z-index: -1;
+        animation: spin 3s linear infinite;
+      }
+      .carousel-container::after {
+        filter: blur(5px);
+      }
+      @keyframes spin {
+        0% {
+          --rotate: 0deg;
+        }
+        100% {
+          --rotate: 360deg;
+        }
+      }
+
+      .title-links {
+        display: flex;
+        justify-content: space-between;
+
+        h3 {
+          font-size: 1.4rem;
+          margin-bottom: 15px;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+      }
+      
+      .dots-container {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .dot {
+        height: 12px;
+        width: 12px;
+        margin: 0 5px; 
+        background-color: gray; 
+        border-radius: 50%; 
+        display: inline-block;
+        cursor: pointer; 
+      }
+
+      .dot.active {
+        background-color: #70d7f7; 
+        //   filter: blur(1px);
+      }
+    }
+  }
+
+  .p-bottom {
+    text-align: right;
+    font-size: 1.1rem;
+  }
+}

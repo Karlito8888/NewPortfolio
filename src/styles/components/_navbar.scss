@@ -47,22 +47,65 @@
   }
 }
 
-.dropdown-nav {
-  display: none; /* Caché par défaut */
-  position: absolute; /* Positionné en absolu */
-  top: 0; /* Juste en dessous de la navbar */
-  left: 0; /* Aligne le dropdown avec la navbar */
-  background-color: rgb(205, 103, 103);
-  width: 100%; /* Assurez-vous qu'il s'étend sur toute la largeur de la navbar */
-  height: 200px;
-  z-index: 5; /* Assurez-vous qu'il est au-dessus d'autres éléments */
 
-  @media (max-width: 760px) {
-    display: block; /* Affiche le dropdown sous 761px */
+.dropdown-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  backdrop-filter: blur(35px);
+  width: 100%;
+  max-height: 0; /* Hauteur initiale effondrée */
+  overflow: hidden; /* Masque le contenu lorsque la hauteur est 0 */
+  transition: max-height 0.2s ease-in-out; /* Animation fluide */
+  z-index: 5;
+}
+
+.dropdown-nav.active {
+  max-height: 200px; /* Hauteur maximale quand actif */
+}
+
+@media (max-width: 760px) {
+  .dropdown-nav {
     nav {
-      ul {
-        flex-direction: column; /* Aligne les éléments en colonne */
-        gap: 10px; /* Ajoute un espacement entre les éléments */
+      height: 100%;
+      width: 100%;
+      padding-top: 15px;
+      padding-inline: clamp(0.75rem, -0.0417rem + 3.1667vw, 3.125rem);
+      font-size: 1.25rem;
+      font-weight: bold;
+      display: grid;
+
+      .listnav-container {
+        ul {
+          display: grid;
+          gap: 4px;
+        }
+      }
+
+      .navlinks-container {
+        ul {
+          display: flex;
+          align-items: center;
+          gap: 40px;
+          font-size: 1.5rem;
+
+          li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            a {
+              border: 2px solid #70d7f7;
+              border-radius: 50px;
+              padding: 10px 11px 0px 11px;
+            }
+          }
+
+          .fa-download {
+            display: none;
+          }
+        }
       }
     }
   }
