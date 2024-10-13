@@ -1,0 +1,95 @@
+{
+  "timeline": [
+    {
+      "id": 1,
+      "title": "Formation Intégrateur Web",
+      "subtitle": "OpenClassRooms",
+      "location": "Paris (En distanciel)",
+      "date": "2024",
+      "description": "Titre Professionnel Développeur Informatique (Bac+2)",
+      "subdescription": [
+        ". Développement d'applications front-end (React / Redux)",
+        ". Planification du développement d'un site, Debug, Tests unitaires",
+        ". Manipulation des APIs, Responsive Design",
+        ". Réalisation de projets professionnalisants"
+      ],
+      "icon": "./images/ocr.png",
+      "category": "Formation"
+    },
+    {
+      "id": 2,
+      "title": "Formation Python",
+      "subtitle": "Docstring",
+      "location": "(Formation en ligne, non certifiante)",
+      "date": "2024",
+      "subdescription": [
+        ". Gestion d'une base de données avec Django / Flask / PostgreSQL",
+        ". Intégration de fonctionnalités de paiement Stripe",
+        ". Déploiement sur un serveur Nginx / Gunicorn",
+        ". Scraping et automatisation de tâches"
+      ],
+      "icon": "./images/docstring_logo.png",
+      "category": "Formation"
+    },
+    {
+      "id": 3,
+      "title": "Formation initiale en développement web",
+      "subtitle": "fromscratch.podia.com",
+      "location": "& apprendre-a-coder.com",
+      "date": "2023",
+      "subdescription": [
+        ". Apprentissage autodidacte",
+        ". Bases solides en HTML, CSS, JavaScript, jQuery et PHP",
+        ". Formation moderne axée front-end avec SASS et React",
+        ". Notions du stack MERN, Git et GitHub, etc..."
+      ],
+      "icon": "./images/dweb.png",
+      "category": "Formation"
+    },
+    {
+      "id": 4,
+      "title": "Barman en Chef",
+      "subtitle": "La KAV",
+      "location": "Saint-Sébastien-sur-Loire (44)",
+      "date": "2021 - 2022",
+      "icon": "./images/lakav.png",
+      "category": "Expérience Professionnelle"
+    },
+    {
+      "id": 5,
+      "title": "Co-gérant / Conducteur routier",
+      "subtitle": "3BS / TransAlliance / Sopitra",
+      "location": "Bretagne et Pays de la Loire",
+      "date": "2004 - 2021",
+      "icon": "./images/3bs.png",
+      "category": "Expérience Professionnelle"
+    },
+    {
+      "id": 6,
+      "title": "Commis de Cuisine",
+      "subtitle": "Hôtel de France",
+      "location": "Nantes (44)",
+      "date": "2003 - 2004",
+      "icon": "./images/hdf.png",
+      "category": "Expérience Professionnelle"
+    },
+    {
+      "id": 7,
+      "title": "BAC STT (option Commerce)",
+      "subtitle": "Lycée Pierre MENDES FRANCE",
+      "location": "La Roche-sur-Yon (85)",
+      "date": "2000 - 2003",
+      "icon": "./images/bac.png",
+      "category": "Diplômes"
+    },
+    {
+      "id": 8,
+      "title": "BEP/CAP Hôtellerie - Restauration",
+      "subtitle": "Lycée Professionnel Edouard BRANLY",
+      "location": " La Roche-sur-Yon (85)",
+      "date": "1998 - 2000",
+      "icon": "./images/bep.png",
+      "category": "Diplômes"
+    }
+  ]
+}

@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Gallery = ({ projects = [] }) => {
+const Gallery = ({ projects = [], isHovered }) => {
+  // Recevoir isHovered comme prop
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
   const hasProjects = projects.length > 0;
 
   const changeSlide = (index) => {
@@ -24,17 +24,14 @@ const Gallery = ({ projects = [] }) => {
     return () => {
       clearInterval(interval);
     };
-  }, [projects.length, isHovered]); // Le défilement s'arrête lorsqu'on survole
+  }, [projects.length, isHovered]);
 
   if (!hasProjects) {
     return <p>Aucun projet trouvé...</p>;
   }
+
   return (
-    <div
-      className="gallery-container"
-      onMouseEnter={() => setIsHovered(true)} // Arrête le défilement
-      onMouseLeave={() => setIsHovered(false)} // Reprend le défilement
-    >
+    <div className="gallery-container">
       <div className="carousel-container">
         <img
           className={`carousel-img active`}

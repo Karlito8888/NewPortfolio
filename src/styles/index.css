@@ -471,7 +471,7 @@ button {
   height: auto;
   aspect-ratio: 16/9;
   padding: 2px;
-  background: black;
+  background: transparent;
   margin-bottom: 30px;
   border-radius: 8px;
 }
@@ -499,10 +499,10 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(var(--rotate), #70d7f7, transparent);
+  background-image: linear-gradient(var(--rotate), transparent, #70d7f7);
   border-radius: 8px;
   z-index: -1;
-  animation: spin 3s linear infinite;
+  animation: spin 4s linear infinite;
 }
 .projects-container .projects-content .project-card .carousel-container::after {
   filter: blur(5px);
@@ -548,4 +548,32 @@ button {
 .projects-container .p-bottom {
   text-align: right;
   font-size: 1.1rem;
+}
+
+.parcours-container {
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 60px;
+}
+.parcours-container .parcours-title {
+  font-family: "Allura", cursive;
+  font-size: 4rem;
+  margin-left: 5%;
+  margin-bottom: 60px;
+}
+.parcours-container .timeline-element {
+  transition: transform 0.1s ease-in-out;
+}
+.parcours-container .timeline-element:hover {
+  transform: scale(1.025);
+}
+.parcours-container .custom-date-class {
+  color: inherit;
+  font-weight: bold;
+}
+[data-theme=light] .parcours-container .custom-date-class {
+  color: var(--color-text-light) !important;
+}
+[data-theme=dark] .parcours-container .custom-date-class {
+  color: var(--color-text-dark) !important;
 }/*# sourceMappingURL=index.css.map */

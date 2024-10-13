@@ -1,0 +1,33 @@
+.parcours-container {
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 60px;
+
+  .parcours-title {
+    font-family: "Allura", cursive;
+    font-size: 4rem;
+    margin-left: 5%;
+    margin-bottom: 60px;
+  }
+  .timeline-element {
+    transition: transform 0.1s ease-in-out; 
+  }
+
+  .timeline-element:hover {
+    transform: scale(1.025); 
+  }
+
+  .custom-date-class {
+  color: inherit; 
+  font-weight: bold;
+
+  [data-theme="light"] & {
+    color: var(--color-text-light) !important; 
+  }
+
+  [data-theme="dark"] & {
+    color: var(--color-text-dark) !important; 
+  }
+}
+
+}
