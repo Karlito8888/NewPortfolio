@@ -1,0 +1,203 @@
+.contact-container {
+  width: 100%;
+  min-height: 90vh;
+  padding-block: 60px;
+
+  .contact-title {
+    font-family: "Allura", cursive;
+    font-size: 4rem;
+    margin-left: 5%;
+    margin-bottom: 60px;
+  }
+
+  .contact-content {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 40px;
+
+    @media (max-width: 960px) {
+    flex-direction: column;
+  }
+
+    .form-container {
+      width: 100%;
+      max-width: 500px;
+      background-color: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(5px);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: relative;
+
+      // Mode sombre
+      [data-theme="dark"] & {
+        box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+      }
+
+      .form-content {
+        display: grid;
+
+        input,
+        textarea {
+          background: none;
+          border-radius: 5px;
+          padding: 10px 6px;
+          border: 1px solid var(--color-link-light);
+          color: var(--color-text-light);
+
+          // Mode sombre
+          [data-theme="dark"] & {
+            color: var(--color-text-dark);
+            border-color: var(--color--dark);
+          }
+
+          &:focus {
+            border-color: var(--color-active-light);
+            outline: none;
+          }
+        }
+
+        input {
+          margin-bottom: 30px;
+        }
+
+        textarea {
+          resize: none;
+          height: 70px;
+        }
+
+        input.submit-form-button {
+            letter-spacing: 1px;
+          height: 55px;
+          width: 126px;
+          border-radius: 50px;
+          margin-top: 50px;
+          font-size: 1.2rem;
+          cursor: pointer;
+          background-color: transparent;
+          color: var(--color-text-light);
+          transition: background-color 0.2s ease, color 0.2s ease;
+
+          // Mode sombre
+          [data-theme="dark"] & {
+             color: var(--color-text-dark);
+          }
+
+          &:hover {
+            background-color: var(--color-link-light);
+            color: var(--color-text-dark);
+
+            // Mode sombre
+            [data-theme="dark"] & {
+              background-color: var(--color-bg-light);
+              color: var(--color-text-light);
+            }
+          }
+        }
+      }
+
+      // Message de feedback
+      .formMessage {
+        position: absolute;
+        left: 50%;
+        bottom: 5px;
+        transform: translateX(-50%);
+        padding: 10px;
+        border-radius: 5px;
+        margin-top: 15px;
+        font-weight: bold;
+        text-align: center;
+
+        &.success {
+          background-color: var(--color-active-light);
+          color: var(--color-text-dark);
+
+          // Mode sombre
+          [data-theme="dark"] & {
+            background-color: var(--color-active-dark);
+            color: var(--color-text-light);
+          }
+        }
+
+        &.error {
+          background-color: #ff4c4c;
+          color: var(--color-text-light);
+
+          // Mode sombre
+          [data-theme="dark"] & {
+            background-color: #ff4c4c;
+            color: var(--color-text-dark);
+          }
+        }
+      }
+    }
+
+    .contact-address {
+      background-color: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(5px);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+      // Mode sombre
+      [data-theme="dark"] & {
+        box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+      }
+
+      span,
+      p {
+        color: var(--color-text-light);
+        transition: color 0.3s ease;
+
+        // Mode sombre
+        [data-theme="dark"] & {
+          color: var(--color-text-dark);
+        }
+      }
+
+      .address {
+        margin-top: 10px;
+
+        span[itemProp="streetAddress"],
+        span[itemProp="postalCode"],
+        span[itemProp="addressLocality"] {
+          font-weight: 600;
+        }
+
+        p {
+          margin: 5px 0;
+        }
+
+        a {
+          color: var(--color-link-light);
+          text-decoration: none;
+          font-weight: 600;
+          transition: color 0.3s ease;
+
+          // Mode sombre
+          [data-theme="dark"] & {
+            color: var(--color-link-dark);
+          }
+
+          &:hover {
+            text-decoration: underline;
+          }
+
+          .fa-whatsapp {
+            margin-right: 15px;
+          }
+        }
+      }
+
+      strong {
+        font-size: 1.2rem;
+      }
+
+      p {
+        margin-top: 15px;
+        line-height: 1.6;
+      }
+    }
+  }
+}

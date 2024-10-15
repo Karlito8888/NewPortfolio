@@ -4,10 +4,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Logo = () => {
   return (
-    <>
+    <div className="logo-content">
       <FontAwesomeIcon icon={faC} />
       <FontAwesomeIcon icon={faB} />
-    </>
+    </div>
   );
 };
 
