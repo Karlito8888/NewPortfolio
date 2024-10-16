@@ -109,7 +109,7 @@ export const projectsData = {
       id: 1,
       title: "The Snake",
       date: "Février 2023",
-      infos: "Le célèbre jeu du serpent...!  (100% JS)",
+      infos: "Le célèbre jeu du serpent...!",
       img: snake,
       link: "https://karlito8888.github.io/chabouchabou.github.io/assets/projects/snake-game/index.html",
     },

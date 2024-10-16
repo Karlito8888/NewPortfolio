@@ -23,7 +23,6 @@
       border-radius: 20px;
       padding-left: 2rem;
       margin-block: 40px;
-      // pointer-events: none;
     }
 
     .picture {
@@ -47,10 +46,15 @@
         align-items: center;
         grid-template-rows: 75% 25%;
 
+        picture {
+          width: 100%;
+          height: 100%;
+        }
+
         img {
           width: 100%;
           height: 100%;
-          object-fit: cover;
+          object-fit: contain;
           background-color: #eaeaea;
           transition: background-color 0.2s ease-out;
 

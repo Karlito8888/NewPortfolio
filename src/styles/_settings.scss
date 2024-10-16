@@ -92,11 +92,13 @@ a {
   transition: color 0.3s ease;
 }
 
-[data-theme="dark"] a {
+[data-theme="dark"] a,
+[data-theme="dark"] .menu-icon {
   color: var(--color-link-dark);
 }
 
-[data-theme="light"] a {
+[data-theme="light"] a,
+[data-theme="light"] .menu-icon {
   color: var(--color-link-light);
 }
 
