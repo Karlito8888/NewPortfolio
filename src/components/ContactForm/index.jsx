@@ -54,26 +54,29 @@ const ContactForm = () => {
   return (
     <div className="form-container">
       <form onSubmit={sendEmail} className="form-content">
-        <label>Nom</label>
+        <label htmlFor="name">Nom</label>
         <input
           type="text"
+          id="name" 
           name="name"
           value={formData.name}
           onChange={handleChange}
           required
           autoComplete="off"
         />
-        <label>Email</label>
+        <label htmlFor="email">Email</label>
         <input
           type="email"
+          id="email" 
           name="email"
           value={formData.email}
           onChange={handleChange}
           required
           autoComplete="on"
         />
-        <label>Message</label>
+        <label htmlFor="message">Message</label>
         <textarea
+          id="message" 
           name="message"
           value={formData.message}
           onChange={handleChange}
@@ -90,3 +93,4 @@ const ContactForm = () => {
 };
 
 export default ContactForm;
+

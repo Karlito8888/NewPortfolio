@@ -266,6 +266,11 @@ button {
 .navbar nav ul .navbar-item,
 .navbar nav ul .link-item {
   height: 100%;
+  transition: transform 0.15s ease;
+}
+.navbar nav ul .navbar-item:hover,
+.navbar nav ul .link-item:hover {
+  transform: scale(1.05);
 }
 .navbar nav ul .navbar-item a,
 .navbar nav ul .link-item a {
@@ -397,8 +402,8 @@ button {
 .a_propos-container .content .picture figure img {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  -o-object-fit: cover;
+     object-fit: cover;
   background-color: #eaeaea;
   transition: background-color 0.2s ease-out;
 }
@@ -600,6 +605,20 @@ button {
 .parcours-container .timeline-element:hover {
   transform: scale(1.025);
 }
+.parcours-container h4 {
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+.parcours-container h5 {
+  margin-bottom: 5px;
+  font-size: 1rem;
+}
+.parcours-container h6 {
+  font-size: 0.9rem;
+}
+.parcours-container p {
+  font-size: clamp(0.8rem, 0.64rem + 0.64vw, 1rem);
+}
 .parcours-container .custom-date-class {
   color: inherit;
   font-weight: bold;
@@ -609,6 +628,11 @@ button {
 }
 [data-theme=dark] .parcours-container .custom-date-class {
   color: var(--color-text-dark) !important;
+}
+@media (max-width: 1170px) {
+  [data-theme=dark] .parcours-container .custom-date-class {
+    color: var(--color-text-light) !important;
+  }
 }
 
 .contact-container {

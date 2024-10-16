@@ -38,11 +38,14 @@ const DarkMode = () => {
         id="darkmode-toggle"
         onChange={toggleTheme}
         defaultChecked={localStorage.getItem("selectedTheme") === "dark"}
+        role="checkbox" // Ajoutez le rôle checkbox
+        aria-checked={localStorage.getItem("selectedTheme") === "dark"} // Mettez à jour ici
+        aria-label="Toggle dark mode"
       />
       <label
         className="dark_mode_label"
         htmlFor="darkmode-toggle"
-        aria-checked={document.body.getAttribute("data-theme") === "dark"}
+        // aria-checked={document.body.getAttribute("data-theme") === "dark"}
       >
         <img src={Sun} className="sun" alt="Sun" />
         <img src={Moon} className="moon" alt="Moon" />

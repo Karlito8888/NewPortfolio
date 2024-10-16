@@ -15,6 +15,11 @@
       .navbar-item,
       .link-item {
         height: 100%;
+        transition: transform 0.15s ease;
+
+        &:hover {
+          transform: scale(1.05);
+        }
         a {
           height: 100%;
 
@@ -22,7 +27,6 @@
             height: 100%;
           }
         }
-       
       }
       .navbar-item {
         padding-top: 5px;

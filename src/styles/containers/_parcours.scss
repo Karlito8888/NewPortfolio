@@ -10,24 +10,45 @@
     margin-bottom: 60px;
   }
   .timeline-element {
-    transition: transform 0.1s ease-in-out; 
+    transition: transform 0.1s ease-in-out;
   }
 
   .timeline-element:hover {
-    transform: scale(1.025); 
+    transform: scale(1.025);
+  }
+
+  h4 {
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+  }
+
+  h5 {
+    margin-bottom: 5px;
+    font-size: 1rem;
+  }
+
+  h6 {
+    font-size: .9rem;
+  }
+
+  p {
+    font-size: clamp(0.8rem, 0.64rem + 0.64vw, 1rem);
   }
 
   .custom-date-class {
-  color: inherit; 
-  font-weight: bold;
+    color: inherit;
+    font-weight: bold;
 
-  [data-theme="light"] & {
-    color: var(--color-text-light) !important; 
+    [data-theme="light"] & {
+      color: var(--color-text-light) !important;
+    }
+
+    [data-theme="dark"] & {
+      color: var(--color-text-dark) !important;
+
+      @media (max-width: 1170px) {
+        color: var(--color-text-light) !important;
+      }
+    }
   }
-
-  [data-theme="dark"] & {
-    color: var(--color-text-dark) !important; 
-  }
-}
-
 }

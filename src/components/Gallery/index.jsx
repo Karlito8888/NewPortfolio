@@ -4,7 +4,6 @@ import { faLink } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Gallery = ({ projects = [], isHovered }) => {
-  // Recevoir isHovered comme prop
   const [currentSlide, setCurrentSlide] = useState(0);
   const hasProjects = projects.length > 0;
 
@@ -15,7 +14,6 @@ const Gallery = ({ projects = [], isHovered }) => {
   useEffect(() => {
     let interval;
     if (!isHovered) {
-      // Le défilement ne fonctionne que si la souris n'est pas sur la carte
       interval = setInterval(() => {
         setCurrentSlide((prevSlide) => (prevSlide + 1) % projects.length);
       }, 4000);
@@ -37,7 +35,7 @@ const Gallery = ({ projects = [], isHovered }) => {
           <img
             className={`carousel-img active`}
             src={projects[currentSlide].img}
-            alt={`Slide ${currentSlide + 1}`}
+            alt={`Slide ${currentSlide + 1} - ${projects[currentSlide].title}`}
           />
         </div>
         <div className="title-links">
@@ -47,29 +45,33 @@ const Gallery = ({ projects = [], isHovered }) => {
               href={projects[currentSlide].link}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={`Voir le projet ${projects[currentSlide].title}`}
             >
               <FontAwesomeIcon
                 icon={faLink}
                 style={{ color: "#70d7f7" }}
                 size="lg"
+                aria-hidden="true"
               />
+              <span className="sr-only">Voir le projet</span>
             </a>
             <a
               href={projects[currentSlide].link}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={`Voir le code source de ${projects[currentSlide].title} sur GitHub`}
             >
               <FontAwesomeIcon
                 icon={faGithub}
                 style={{ color: "#70d7f7" }}
                 size="lg"
+                aria-hidden="true"
               />
+              <span className="sr-only">Voir le code sur GitHub</span>
             </a>
           </div>
         </div>
         <p>{projects[currentSlide].infos}</p>
-
-        {/* Dots pour la navigation */}
       </div>
       <div className="dots-container">
         {projects.map((_, index) => (
@@ -77,6 +79,7 @@ const Gallery = ({ projects = [], isHovered }) => {
             key={index}
             className={`dot ${currentSlide === index ? "active" : ""}`}
             onClick={() => changeSlide(index)}
+            aria-label={`Diapositive ${index + 1}`}
           />
         ))}
       </div>
