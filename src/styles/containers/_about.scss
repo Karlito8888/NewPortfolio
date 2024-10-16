@@ -8,7 +8,7 @@
 
   .about-title {
     font-family: "Allura", cursive;
-    font-size: 4rem;
+    font-size: clamp(2.2rem, 0.9838rem + 3.8919vw, 4rem);
     margin-left: 5%;
   }
 
@@ -92,8 +92,14 @@
 }
 
 @media (max-width: 799px) {
+  .about-title {
+    font-family: "Allura", cursive;
+    font-size: clamp(2.2rem, 0.9838rem + 3.8919vw, 4rem);
+    margin-left: 5%;
+    margin-block: 10%;
+  }
   .content {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
     grid-template-areas:
       "pic"
       "des";
