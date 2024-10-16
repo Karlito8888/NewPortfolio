@@ -75,11 +75,12 @@ const Gallery = ({ projects = [], isHovered }) => {
       </div>
       <div className="dots-container">
         {projects.map((_, index) => (
-          <span
+          <button
             key={index}
             className={`dot ${currentSlide === index ? "active" : ""}`}
             onClick={() => changeSlide(index)}
             aria-label={`Diapositive ${index + 1}`}
+            type="button"
           />
         ))}
       </div>
