@@ -9,11 +9,11 @@ export const CvLink = ({ onClick }) => (
       target="_blank"
       rel="noopener noreferrer"
       download="CV_Charles_BOURGAULT.pdf"
-      aria-label="CV"
+      aria-label="Télécharger le CV de Charles BOURGAULT"
       className="link-cv"
       onClick={onClick}
     >
-      CV <FontAwesomeIcon icon={faDownload} size="sm" />
+      CV <FontAwesomeIcon icon={faDownload} size="sm" aria-hidden="true" />
     </a>
   </li>
 );
@@ -24,10 +24,10 @@ export const GithubLink = () => (
       href="https://github.com/Karlito8888"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="GitHub"
+      aria-label="Visitez mon profil GitHub (ouvre un nouvel onglet)"
       className="github-icon"
     >
-      <FontAwesomeIcon icon={faGithub} />
+      <FontAwesomeIcon icon={faGithub} aria-hidden="true" />
     </a>
   </li>
 );
@@ -38,10 +38,10 @@ export const LinkedInLink = () => (
       href="https://www.linkedin.com/in/charles-bourgault-407694300/"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="LinkedIn"
+      aria-label="Visitez mon profil LinkedIn (ouvre un nouvel onglet)"
       className="linkedin-icon"
     >
-      <FontAwesomeIcon icon={faLinkedin} />
+      <FontAwesomeIcon icon={faLinkedin} aria-hidden="true" />
     </a>
   </li>
 );

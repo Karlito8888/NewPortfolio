@@ -52,8 +52,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background-color: transparent;
-  backdrop-filter: blur(35px);
+  background: linear-gradient(to bottom, #eeeeeefb 95%, transparent);
   width: 100%;
   max-height: 0; /* Hauteur initiale effondrée */
   overflow: hidden; /* Masque le contenu lorsque la hauteur est 0 */
@@ -62,7 +61,7 @@
 }
 
 .dropdown-nav.active {
-  max-height: 200px; /* Hauteur maximale quand actif */
+  max-height: 250px; /* Hauteur maximale quand actif */
 }
 
 @media (max-width: 760px) {
@@ -70,11 +69,12 @@
     nav {
       height: 100%;
       width: 100%;
-      padding-top: 15px;
+      padding-block: 15px;
       padding-inline: clamp(0.75rem, -0.0417rem + 3.1667vw, 3.125rem);
       font-size: 1.25rem;
       font-weight: bold;
       display: grid;
+      gap: 15px;
 
       .listnav-container {
         ul {

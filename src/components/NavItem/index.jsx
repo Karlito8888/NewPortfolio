@@ -12,7 +12,12 @@ const NavItem = ({ item, isActive, onClick, isMobile }) => {
         onClick={onClick}
       >
         {isMobile ? (
-          <FontAwesomeIcon icon={item.icon} size="lg" className="icon" />
+          <FontAwesomeIcon
+            icon={item.icon}
+            size="lg"
+            className="icon"
+            aria-hidden="true"
+          />
         ) : (
           <span className="text">{item.name}</span>
         )}

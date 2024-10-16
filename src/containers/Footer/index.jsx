@@ -7,8 +7,12 @@ const Footer = () => {
       <Logo />
       <p>© Charles BOURGAULT 2024</p>
       <div className="footer-navlinks">
-      <GithubLink />
-      <LinkedInLink />
+        <nav>
+          <ul>
+            <GithubLink />
+            <LinkedInLink />
+          </ul>
+        </nav>
       </div>
     </footer>
   );

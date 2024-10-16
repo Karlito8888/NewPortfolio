@@ -52,7 +52,7 @@ const Navbar = () => {
   return (
     <>
       <div className="navbar">
-        <nav>
+        <nav role="navigation" aria-label="Navigation principale">
           <ul>
             {listnav.map((item) => (
               <NavItem
@@ -74,11 +74,15 @@ const Navbar = () => {
               <div className="menu-icon">
                 <FontAwesomeIcon
                   icon={isMenuOpen ? faTimes : faBars}
-                  size="2xl"
+                  size="xl"
                   onClick={toggleMenu}
                   className="menu-icon"
                   style={{ cursor: "pointer" }}
+                  aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
                 />
+                <span className="sr-only">
+                  {isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+                </span>
               </div>
             )}
           </ul>

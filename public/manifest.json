@@ -1,5 +1,5 @@
 {
-  "short_name": "Mon Portfolio",
+  "short_name": "Portfolio",
   "name": "Mon Portfolio",
   "lang": "fr-FR",
   "icons": [
@@ -69,8 +69,8 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/",
-  "background_color": "#ffffff",
+  "start_url": "/index.html",
+  "background_color": "#FFFFFF",
   "display": "standalone",
   "theme_color": "#9356dc",
   "description": "Développeur Web Frontend à Paris",
