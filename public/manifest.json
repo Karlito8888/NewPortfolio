@@ -1,5 +1,5 @@
 {
-  "short_name": "Portfolio",
+  "short_name": "Mon Portfolio",
   "name": "Mon Portfolio",
   "lang": "fr-FR",
   "icons": [
@@ -69,11 +69,11 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/index.html",
-  "background_color": "#FFFFFF",
+  "start_url": "/",
+  "background_color": "#ffffff",
   "display": "standalone",
   "theme_color": "#9356dc",
-  "description": "Un portfolio interactif pour présenter mes projets.",
+  "description": "Développeur Web Frontend à Paris",
   "scope": "/",
   "dir": "ltr",
   "categories": ["portfolio", "education", "productivity"]

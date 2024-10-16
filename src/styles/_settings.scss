@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap");
+
 :root {
   --color-bg-light: #eeeeee; /* Couleur de fond claire */
   --color-bg-dark: #333; /* Couleur de fond sombre */
@@ -14,14 +16,6 @@
   --color-toggle-active-gradient-start: #777; /* Dégradé du toggle actif */
   --color-toggle-active-gradient-end: #70d7f7; /* Dégradé du toggle actif */
 }
-
-@font-face {
-  font-family: 'Allura';
-  src: url('./fonts/Allura-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
 
 @property --rotate{
   syntax: "<angle>";
