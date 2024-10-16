@@ -31,44 +31,46 @@ const Gallery = ({ projects = [], isHovered }) => {
   }
 
   return (
-    <div className="gallery-container">
-      <div className="carousel-container">
-        <img
-          className={`carousel-img active`}
-          src={projects[currentSlide].img}
-          alt={`Slide ${currentSlide + 1}`}
-        />
-      </div>
-      <div className="title-links">
-        <h3>{projects[currentSlide].title}</h3>
-        <div className="project-links">
-          <a
-            href={projects[currentSlide].link}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FontAwesomeIcon
-              icon={faLink}
-              style={{ color: "#70d7f7" }}
-              size="lg"
-            />
-          </a>
-          <a
-            href={projects[currentSlide].link}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FontAwesomeIcon
-              icon={faGithub}
-              style={{ color: "#70d7f7" }}
-              size="lg"
-            />
-          </a>
+    <>
+      <div className="gallery-container">
+        <div className="carousel-container">
+          <img
+            className={`carousel-img active`}
+            src={projects[currentSlide].img}
+            alt={`Slide ${currentSlide + 1}`}
+          />
         </div>
-      </div>
-      <p>{projects[currentSlide].infos}</p>
+        <div className="title-links">
+          <h3>{projects[currentSlide].title}</h3>
+          <div className="project-links">
+            <a
+              href={projects[currentSlide].link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon
+                icon={faLink}
+                style={{ color: "#70d7f7" }}
+                size="lg"
+              />
+            </a>
+            <a
+              href={projects[currentSlide].link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon
+                icon={faGithub}
+                style={{ color: "#70d7f7" }}
+                size="lg"
+              />
+            </a>
+          </div>
+        </div>
+        <p>{projects[currentSlide].infos}</p>
 
-      {/* Dots pour la navigation */}
+        {/* Dots pour la navigation */}
+      </div>
       <div className="dots-container">
         {projects.map((_, index) => (
           <span
@@ -78,7 +80,7 @@ const Gallery = ({ projects = [], isHovered }) => {
           />
         ))}
       </div>
-    </div>
+    </>
   );
 };
 

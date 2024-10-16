@@ -19,15 +19,25 @@
     border: 4px solid #70d7f7;
     border-radius: 50%;
     svg {
-      font-size: 1.5rem;
+      font-size: clamp(1rem, 0.6622rem + 1.0811vw, 1.5rem);
     }
   }
+  p {
+    font-size: clamp(0.75rem, 0.5811rem + 0.5405vw, 1rem);
+  }
   .footer-navlinks {
+    width: auto;
     display: flex;
     gap: 15px;
-
-    svg {
-      font-size: 1.5rem;
+    nav {
+      width: auto;
+      ul {
+        display: flex;
+        gap: 15px;
+        li {
+          width: clamp(1.375rem, 1.0372rem + 1.0811vw, 1.875rem);
+        }
+      }
     }
   }
 }

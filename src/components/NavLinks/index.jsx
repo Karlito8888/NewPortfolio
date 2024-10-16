@@ -1,25 +1,25 @@
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { faDownload } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Github from "./Github.svg";
+import LinkedIn from "./Linkedin.svg";
+import SquareCv from "./SquareCv.svg";
 
 export const CvLink = ({ onClick }) => (
-  <li>
+  <li className="link-item">
     <a
       href="./CV_Charles_BOURGAULT.pdf"
       target="_blank"
       rel="noopener noreferrer"
-      download="CV_Charles_BOURGAULT.pdf"
+      // download="CV_Charles_BOURGAULT.pdf"
       aria-label="Télécharger le CV de Charles BOURGAULT"
       className="link-cv"
       onClick={onClick}
     >
-      CV <FontAwesomeIcon icon={faDownload} size="sm" aria-hidden="true" />
+      <img src={SquareCv} className="logo-cv" alt="logo du cv" />
     </a>
   </li>
 );
 
 export const GithubLink = () => (
-  <li>
+  <li className="link-item">
     <a
       href="https://github.com/Karlito8888"
       target="_blank"
@@ -27,13 +27,13 @@ export const GithubLink = () => (
       aria-label="Visitez mon profil GitHub (ouvre un nouvel onglet)"
       className="github-icon"
     >
-      <FontAwesomeIcon icon={faGithub} aria-hidden="true" />
+      <img src={Github} className="logo-github" alt="logo de github" />
     </a>
   </li>
 );
 
 export const LinkedInLink = () => (
-  <li>
+  <li className="link-item">
     <a
       href="https://www.linkedin.com/in/charles-bourgault-407694300/"
       target="_blank"
@@ -41,7 +41,7 @@ export const LinkedInLink = () => (
       aria-label="Visitez mon profil LinkedIn (ouvre un nouvel onglet)"
       className="linkedin-icon"
     >
-      <FontAwesomeIcon icon={faLinkedin} aria-hidden="true" />
+      <img src={LinkedIn} className="logo-linkedin" alt="logo de linkedin" />
     </a>
   </li>
 );

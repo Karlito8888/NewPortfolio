@@ -7,7 +7,7 @@ import reactLogo from "../../assets/logos/react.svg";
 import gamesLogo from "../../assets/logos/joystick.svg";
 
 const Projects = () => {
-  const [isHovered, setIsHovered] = useState(false); // Gérer l'état ici
+  const [isHovered, setIsHovered] = useState(false); 
   const themes = Object.keys(projectsData);
   const logos = {
     sass: sassLogo,
@@ -24,16 +24,15 @@ const Projects = () => {
           <div
             key={theme}
             className="project-card"
-            onMouseEnter={() => setIsHovered(true)} // Déclencher au survol
-            onMouseLeave={() => setIsHovered(false)} // Arrêter après survol
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)} 
           >
             <img
               src={logos[theme]}
               alt={`${theme} logo`}
               className="theme-logo"
             />
-            <Gallery projects={projectsData[theme]} isHovered={isHovered} />{" "}
-            {/* Passer l'état */}
+            <Gallery projects={projectsData[theme]} isHovered={isHovered} />
           </div>
         ))}
       </div>

@@ -12,7 +12,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
-  const [activeTab, setActiveTab] = useState("À propos");
+  const [activeTab, setActiveTab] = useState("A propos");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showNavLinks, setShowNavLinks] = useState(window.innerWidth < 600);
   const [showMenuIcon, setShowMenuIcon] = useState(window.innerWidth < 760);
@@ -22,7 +22,7 @@ const Navbar = () => {
 
   const listnav = useMemo(
     () => [
-      { name: "À propos", icon: faUser },
+      { name: "A propos", icon: faUser },
       { name: "Projets", icon: faLaptopCode },
       { name: "Parcours", icon: faGraduationCap },
       { name: "Contact", icon: faEnvelope },
@@ -58,7 +58,6 @@ const Navbar = () => {
               <NavItem
                 key={item.name || item}
                 item={item}
-                isActive={activeTab === item.name}
                 onClick={() => handleTabClick(item)}
                 isMobile={isMobile}
               />
