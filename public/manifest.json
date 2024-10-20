@@ -72,7 +72,7 @@
   "start_url": "/",
   "background_color": "#FFFFFF",
   "display": "standalone",
-  "theme_color": "#9356dc",
+  "theme_color": "#70d7f7",
   "description": "Développeur Web Frontend à Paris",
   "scope": "/",
   "dir": "ltr",
