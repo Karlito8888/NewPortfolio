@@ -3,20 +3,21 @@
   min-height: calc(100vh - 140px);
   display: grid;
   align-content: space-evenly;
-
+  position: relative;
+  
   .about-title {
     font-family: "Caveat", "Nimbus Mono PS", cursive;
     font-size: clamp(2.2rem, 0.9838rem + 3.8919vw, 4rem);
     margin-left: 5%;
   }
-
+  
   .content {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-content: space-between;
     align-items: center;
     gap: 50px;
-
+    
     .description {
       font-size: clamp(1rem, 0.7143rem + 0.4464vw, 1.25rem);
       border-left: 0.7rem solid #70d7f7;
@@ -78,6 +79,35 @@
       }
     }
   }
+}
+
+.a_propos-container::before {
+  content: '';
+  background-image: url('/logos/react.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  right: -150px;
+  top: 10px;
+  width: 300px;
+  height: 100%;
+  z-index: -15; 
+  opacity: 0.1;
+}
+
+.a_propos-container::after {
+  content: '';
+  background-image: url('/logos/python.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 30%;
+  transform: translateX(-50%);
+  top: 80%;
+  width: 200px;
+  height: 100%;
+  z-index: -15; 
+  opacity: 0.05;
 }
 
 @media (max-width: 1024px) {

@@ -359,6 +359,7 @@ button {
   min-height: calc(100vh - 140px);
   display: grid;
   align-content: space-evenly;
+  position: relative;
 }
 .a_propos-container .about-title {
   font-family: "Caveat", "Nimbus Mono PS", cursive;
@@ -427,6 +428,35 @@ button {
   transform: scale(1.03) rotate(1deg);
   box-shadow: 1px 10px 30px 10px rgba(0, 0, 0, 0.3);
   opacity: 1;
+}
+
+.a_propos-container::before {
+  content: "";
+  background-image: url("/logos/react.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  right: -150px;
+  top: 10px;
+  width: 300px;
+  height: 100%;
+  z-index: -15;
+  opacity: 0.1;
+}
+
+.a_propos-container::after {
+  content: "";
+  background-image: url("/logos/python.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 30%;
+  transform: translateX(-50%);
+  top: 80%;
+  width: 200px;
+  height: 100%;
+  z-index: -15;
+  opacity: 0.05;
 }
 
 @media (max-width: 1024px) {
