@@ -45,7 +45,7 @@ const About = () => {
                     ./profile-pic-l.png 394w"
                 />
                 <img
-                  src="./profile-pic-l.png"
+                  src="./profile-pic-m.webp"
                   alt="Photo de Charles BOURGAULT"
                 />
               </picture>
