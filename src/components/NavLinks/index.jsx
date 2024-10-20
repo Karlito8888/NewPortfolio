@@ -8,7 +8,7 @@ export const CvLink = ({ onClick }) => (
       href="./CV_Charles_BOURGAULT.pdf"
       target="_blank"
       rel="noopener noreferrer"
-      // download="CV_Charles_BOURGAULT.pdf"
+      download="CV_Charles_BOURGAULT.pdf"
       aria-label="Télécharger le CV de Charles BOURGAULT"
       className="link-cv"
       onClick={onClick}
