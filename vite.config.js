@@ -17,8 +17,7 @@ export default defineConfig({
         short_name: "Portfolio",
         name: "Mon Portfolio",
         lang: "fr-FR",
-        start_url: "/index.html",
-        id: "/index.html",
+        start_url: "/",
         background_color: "#FFFFFF",
         theme_color: "#70d7f7",
         display: "standalone",
@@ -118,7 +117,17 @@ export default defineConfig({
         ],
         categories: ["portfolio", "education", "productivity"],
       },
+      workbox: {
+        runtimeCaching: [
+          {
+            urlPattern: /.*/,
+            handler: "NetworkFirst", // Utilise la stratégie NetworkFirst pour ce fichier
+            options: {
+              cacheName: "html-cache", // Nom du cache
+            },
+          },
+        ],
+      },
     }),
   ],
 });
-
