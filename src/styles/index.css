@@ -417,7 +417,7 @@ button {
 }
 .a_propos-container .content .picture figure figcaption {
   font-family: "Caveat", "Nimbus Mono PS", cursive;
-  font-size: clamp(1.3rem, -3.2rem + 4.8vw, 1.6rem);
+  font-size: clamp(1.1rem, 0.7622rem + 1.0811vw, 1.6rem);
   width: -moz-fit-content;
   width: fit-content;
   margin-inline: auto;
