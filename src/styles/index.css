@@ -361,7 +361,7 @@ button {
   align-content: space-evenly;
 }
 .a_propos-container .about-title {
-  font-family: "Caveat", cursive;
+  font-family: "Caveat", "Nimbus Mono PS", cursive;
   font-size: clamp(2.2rem, 0.9838rem + 3.8919vw, 4rem);
   margin-left: 5%;
 }
@@ -416,7 +416,7 @@ button {
   background-color: rgba(112, 216, 247, 0.137254902);
 }
 .a_propos-container .content .picture figure figcaption {
-  font-family: "Caveat", cursive;
+  font-family: "Caveat", "Nimbus Mono PS", cursive;
   font-size: clamp(1.3rem, -3.2rem + 4.8vw, 1.6rem);
   width: -moz-fit-content;
   width: fit-content;
@@ -464,7 +464,7 @@ button {
   align-content: space-evenly;
 }
 .projects-container .projects-title {
-  font-family: "Caveat", cursive;
+  font-family: "Caveat", "Nimbus Mono PS", cursive;
   font-size: clamp(2.2rem, 0.9838rem + 3.8919vw, 4rem);
   margin-left: 5%;
 }
@@ -599,7 +599,7 @@ button {
   padding-block: 60px;
 }
 .parcours-container .parcours-title {
-  font-family: "Caveat", cursive;
+  font-family: "Caveat", "Nimbus Mono PS", cursive;
   font-size: clamp(2.2rem, 0.9838rem + 3.8919vw, 4rem);
   margin-left: 5%;
   margin-bottom: 60px;
@@ -646,7 +646,7 @@ button {
   padding-block: 60px;
 }
 .contact-container .contact-title {
-  font-family: "Caveat", cursive;
+  font-family: "Caveat", "Nimbus Mono PS", cursive;
   font-size: clamp(2.2rem, 0.9838rem + 3.8919vw, 4rem);
   margin-left: 5%;
   margin-bottom: 60px;
