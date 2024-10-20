@@ -120,10 +120,20 @@ export default defineConfig({
       workbox: {
         runtimeCaching: [
           {
-            urlPattern: /.*/,
-            handler: "NetworkFirst", // Utilise la stratégie NetworkFirst pour ce fichier
+            urlPattern: /.*\.pdf$/, // Cacher tous les fichiers PDF
+            handler: "CacheFirst", // Utilise la stratégie CacheFirst pour les PDF
             options: {
-              cacheName: "html-cache", // Nom du cache
+              cacheName: "pdf-cache", // Nom du cache pour les PDF
+              expiration: {
+                maxEntries: 50, // Limite le nombre d'entrées dans le cache
+              },
+            },
+          },
+          {
+            urlPattern: /.*/, // Pour les autres fichiers
+            handler: "NetworkFirst", // Utilise la stratégie NetworkFirst pour les autres fichiers
+            options: {
+              cacheName: "html-cache", // Nom du cache pour les autres fichiers
             },
           },
         ],
