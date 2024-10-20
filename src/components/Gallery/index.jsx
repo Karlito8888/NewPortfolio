@@ -56,7 +56,7 @@ const Gallery = ({ projects = [], isHovered }) => {
               <span className="sr-only">Voir le projet</span>
             </a>
             <a
-              href={projects[currentSlide].link}
+              href={projects[currentSlide].link2}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Voir le code source de ${projects[currentSlide].title} sur GitHub`}
