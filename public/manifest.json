@@ -2,6 +2,13 @@
   "short_name": "Portfolio",
   "name": "Mon Portfolio",
   "lang": "fr-FR",
+  "start_url": "/index.html",
+  "id": "/index.html",
+  "background_color": "#FFFFFF",
+  "display": "standalone",
+  "theme_color": "#70d7f7",
+  "description": "Développeur Web Frontend à Paris",
+  "categories": ["portfolio", "education", "productivity"],
   "icons": [
     {
       "src": "./icons/logo-cb-16.png",
@@ -69,12 +76,30 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/",
-  "background_color": "#FFFFFF",
-  "display": "standalone",
-  "theme_color": "#70d7f7",
-  "description": "Développeur Web Frontend à Paris",
-  "scope": "/",
-  "dir": "ltr",
-  "categories": ["portfolio", "education", "productivity"]
+  "screenshots": [
+    {
+      "src": "/screenshots/screenshot-1-wide.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/screenshots/screenshot-2-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/screenshots/screenshot-1-narrow.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/screenshots/screenshot-2-narrow.png",
+      "sizes": "720x1280",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ]
 }
