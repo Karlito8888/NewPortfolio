@@ -1,5 +1,10 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap");
+@font-face {
+  font-family: "Caveat";
+  src: url("/fonts/Caveat-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 :root {
   --color-bg-light: #eeeeee; /* Couleur de fond claire */
   --color-bg-dark: #333; /* Couleur de fond sombre */
