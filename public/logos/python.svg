@@ -22,7 +22,7 @@
             animation: draw 10s linear infinite; /* Animation qui durera 4 secondes, linéaire et infinie */
         }
 
-        @keyframes draw {
+        <!-- @keyframes draw {
             0% {
                 stroke-dashoffset: 62; /* Commence caché */
             }
@@ -31,6 +31,36 @@
             }
             100% {
                 stroke-dashoffset: 62; /* Commence caché */
+            }
+        } -->
+         @keyframes draw {
+            0% {
+                stroke-dashoffset: 0;
+                fill: #000000;
+            }
+            20% {
+                stroke-dashoffset: 62;
+                fill: #000000;
+            }
+            40% {
+                stroke-dashoffset: 124; /* Commence caché */
+                fill: transparent;
+            }
+            50% {
+                stroke-dashoffset: 124; /* Commence caché */
+                fill: #70d7f7;
+            }
+            60% {
+                stroke-dashoffset: 124; /* Commence caché */
+                fill: transparent;
+            }
+            80% {
+                stroke-dashoffset: 62;
+                fill: #000000;
+            }
+            100% {
+                stroke-dashoffset: 0;
+                fill: #000000;
             }
         }
     </style>

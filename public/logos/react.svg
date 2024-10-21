@@ -7,10 +7,10 @@
             stroke-width: 10; /* Épaisseur du trait */
             stroke-dasharray: 1640; /* Longueur totale des traits (ajustez selon votre chemin) */
             stroke-dashoffset: 1640; /* Commence à cacher le trait */
-               animation: draw 15s linear infinite; /* Animation qui durera 5 secondes, linéaire et infinie */
+               animation: draw 10s linear infinite; /* Animation qui durera 5 secondes, linéaire et infinie */
         }
 
-        @keyframes draw {
+        <!-- @keyframes draw {
             0% {
                 stroke-dashoffset: 1640; /* Commence caché */
             }
@@ -19,6 +19,36 @@
             }
             100% {
                 stroke-dashoffset: 1640; /* Commence caché */
+            }
+        } -->
+         @keyframes draw {
+            0% {
+                stroke-dashoffset: 0;
+                fill: #000000;
+            }
+            20% {
+                stroke-dashoffset: 1640;
+                fill: #000000;
+            }
+            40% {
+                stroke-dashoffset: 3280; /* Commence caché */
+                fill: transparent;
+            }
+            50% {
+                stroke-dashoffset: 3280; /* Commence caché */
+                fill: #70d7f7;
+            }
+            60% {
+                stroke-dashoffset: 3280; /* Commence caché */
+                fill: transparent;
+            }
+            80% {
+                stroke-dashoffset: 1640;
+                fill: #000000;
+            }
+            100% {
+                stroke-dashoffset: 0;
+                fill: #000000;
             }
         }
     </style>

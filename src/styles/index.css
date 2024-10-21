@@ -450,13 +450,12 @@ button {
   background-size: contain;
   background-repeat: no-repeat;
   position: absolute;
-  left: 30%;
-  transform: translateX(-50%);
-  top: 80%;
+  right: -100px;
+  top: 100%;
   width: 200px;
   height: 100%;
   z-index: -15;
-  opacity: 0.05;
+  opacity: 0.1;
 }
 
 @media (max-width: 1024px) {
