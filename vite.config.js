@@ -2,16 +2,16 @@
 
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import { VitePWA } from "vite-plugin-pwa"; // Importer le plugin PWA
+import { VitePWA } from "vite-plugin-pwa";
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
     VitePWA({
-      registerType: "autoUpdate", // Permet de mettre à jour automatiquement le service worker
+      registerType: "autoUpdate",
       devOptions: {
-        enabled: true, // Pour activer le mode PWA en mode développement
+        enabled: true, 
       },
       manifest: {
         short_name: "Portfolio",
@@ -120,20 +120,20 @@ export default defineConfig({
       workbox: {
         runtimeCaching: [
           {
-            urlPattern: /.*\.pdf$/, // Cacher tous les fichiers PDF
-            handler: "CacheFirst", // Utilise la stratégie CacheFirst pour les PDF
+            urlPattern: /.*\.pdf$/, 
+            handler: "CacheFirst",
             options: {
-              cacheName: "pdf-cache", // Nom du cache pour les PDF
+              cacheName: "pdf-cache",
               expiration: {
-                maxEntries: 50, // Limite le nombre d'entrées dans le cache
+                maxEntries: 50, 
               },
             },
           },
           {
-            urlPattern: /.*/, // Pour les autres fichiers
-            handler: "NetworkFirst", // Utilise la stratégie NetworkFirst pour les autres fichiers
+            urlPattern: /.*/, 
+            handler: "NetworkFirst", 
             options: {
-              cacheName: "html-cache", // Nom du cache pour les autres fichiers
+              cacheName: "html-cache", 
             },
           },
         ],
