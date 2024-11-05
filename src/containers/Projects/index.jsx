@@ -60,7 +60,6 @@ const Projects = () => {
           <p>
             Parmi les fonctionnalités que je mets en place, on trouve :
             <ul>
-              <br />
               <li>
                 Un système d'authentification robuste utilisant des tokens{" "}
                 <strong>JWT</strong>, garantissant la sécurité des utilisateurs.
