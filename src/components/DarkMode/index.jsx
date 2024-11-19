@@ -1,8 +1,18 @@
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 import Sun from "./Sun.svg";
 import Moon from "./Moon.svg";
 
 const DarkMode = () => {
+  const setDarkMode = useCallback(() => {
+    document.body.setAttribute("data-theme", "dark");
+    localStorage.setItem("selectedTheme", "dark");
+  }, []);
+
+  const setLightMode = useCallback(() => {
+    document.body.setAttribute("data-theme", "light");
+    localStorage.setItem("selectedTheme", "light");
+  }, []);
+
   useEffect(() => {
     const selectedTheme = localStorage.getItem("selectedTheme");
     if (selectedTheme === "dark") {
@@ -10,25 +20,17 @@ const DarkMode = () => {
     } else {
       setLightMode();
     }
-  }, []);
+  }, [setDarkMode, setLightMode]);
 
-  const setDarkMode = () => {
-    document.body.setAttribute("data-theme", "dark");
-    localStorage.setItem("selectedTheme", "dark");
-  };
-
-  const setLightMode = () => {
-    document.body.setAttribute("data-theme", "light");
-    localStorage.setItem("selectedTheme", "light");
-  };
-
-  const toggleTheme = (e) => {
+  const toggleTheme = useCallback((e) => {
     if (e.target.checked) {
       setDarkMode();
     } else {
       setLightMode();
     }
-  };
+  }, [setDarkMode, setLightMode]);
+
+  const isDarkMode = localStorage.getItem("selectedTheme") === "dark";
 
   return (
     <div className="dark_mode">
@@ -37,18 +39,27 @@ const DarkMode = () => {
         type="checkbox"
         id="darkmode-toggle"
         onChange={toggleTheme}
-        defaultChecked={localStorage.getItem("selectedTheme") === "dark"}
-        role="checkbox" // Ajoutez le rôle checkbox
-        aria-checked={localStorage.getItem("selectedTheme") === "dark"} // Mettez à jour ici
-        aria-label="Toggle dark mode"
+        defaultChecked={isDarkMode}
+        role="switch"
+        aria-checked={isDarkMode}
+        aria-label="Activer le mode sombre"
       />
       <label
         className="dark_mode_label"
         htmlFor="darkmode-toggle"
-        // aria-checked={document.body.getAttribute("data-theme") === "dark"}
       >
-        <img src={Sun} className="sun" alt="Sun" />
-        <img src={Moon} className="moon" alt="Moon" />
+        <img 
+          src={Sun} 
+          className="sun" 
+          alt="" 
+          aria-hidden="true"
+        />
+        <img 
+          src={Moon} 
+          className="moon" 
+          alt="" 
+          aria-hidden="true"
+        />
       </label>
     </div>
   );

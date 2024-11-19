@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import emailjs from "@emailjs/browser";
 
 const PUBLIC_KEY = import.meta.env.VITE_PUBLIC_KEY;
 const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
 
+const FEEDBACK_DURATION = 2000;
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -16,36 +17,39 @@ const ContactForm = () => {
     message: "",
     type: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = useCallback((e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+  }, []);
 
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
-    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, e.target, PUBLIC_KEY).then(
-      (res) => {
-        console.log(res.text);
-        setFormData({ name: "", email: "", message: "" }); // Reset form
-        setFeedback({ message: "Message envoyé !", type: "success" });
-      },
-      (err) => {
-        console.log(err.text);
-        setFeedback({
-          message: "Une erreur s'est produite, veuillez réessayer",
-          type: "error",
-        });
-      }
-    );
+    if (isSubmitting) return;
+
+    try {
+      setIsSubmitting(true);
+      const res = await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, e.target, PUBLIC_KEY);
+      console.log(res.text);
+      setFormData({ name: "", email: "", message: "" });
+      setFeedback({ message: "Message envoyé !", type: "success" });
+    } catch (err) {
+      console.error("Erreur d'envoi:", err);
+      setFeedback({
+        message: "Une erreur s'est produite, veuillez réessayer",
+        type: "error",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  // Effacer le message après un délai
   useEffect(() => {
     if (feedback.message) {
       const timer = setTimeout(
         () => setFeedback({ message: "", type: "" }),
-        2000
+        FEEDBACK_DURATION
       );
       return () => clearTimeout(timer);
     }
@@ -53,8 +57,11 @@ const ContactForm = () => {
 
   return (
     <div className="form-container">
-      <form onSubmit={sendEmail} className="form-content">
-        <label htmlFor="name">Nom</label>
+      <form onSubmit={sendEmail} className="form-content" noValidate>
+        <label htmlFor="name">
+          Nom
+          <span aria-hidden="true" className="required">*</span>
+        </label>
         <input
           type="text"
           id="name" 
@@ -62,9 +69,15 @@ const ContactForm = () => {
           value={formData.name}
           onChange={handleChange}
           required
-          autoComplete="off"
+          autoComplete="name"
+          aria-required="true"
+          minLength="2"
+          maxLength="50"
         />
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">
+          Email
+          <span aria-hidden="true" className="required">*</span>
+        </label>
         <input
           type="email"
           id="email" 
@@ -72,19 +85,39 @@ const ContactForm = () => {
           value={formData.email}
           onChange={handleChange}
           required
-          autoComplete="on"
+          autoComplete="email"
+          aria-required="true"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
         />
-        <label htmlFor="message">Message</label>
+        <label htmlFor="message">
+          Message
+          <span aria-hidden="true" className="required">*</span>
+        </label>
         <textarea
           id="message" 
           name="message"
           value={formData.message}
           onChange={handleChange}
+          required
+          aria-required="true"
+          minLength="10"
+          maxLength="1000"
         />
-        <input type="submit" value="Envoyer" className="submit-form-button" />
+        <button 
+          type="submit" 
+          className="submit-form-button"
+          disabled={isSubmitting}
+          aria-busy={isSubmitting}
+        >
+          {isSubmitting ? "Envoi en cours..." : "Envoyer"}
+        </button>
       </form>
       {feedback.message && (
-        <div className={`formMessage ${feedback.type}`} aria-live="polite">
+        <div 
+          className={`formMessage ${feedback.type}`} 
+          role="status"
+          aria-live="polite"
+        >
           {feedback.message}
         </div>
       )}
@@ -93,4 +126,3 @@ const ContactForm = () => {
 };
 
 export default ContactForm;
-

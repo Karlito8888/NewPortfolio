@@ -1,14 +1,28 @@
+import { memo } from 'react';
 import Logo from "../../components/Logo";
 import { GithubLink, LinkedInLink } from "../../components/NavLinks";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="footer">
+    <footer 
+      className="footer"
+      role="contentinfo"
+      aria-label="Pied de page"
+    >
       <Logo />
-      <p>© Charles BOURGAULT 2024</p>
-      <div className="footer-navlinks">
+      <p>
+        <span aria-label="Copyright">©</span>
+        {` Charles BOURGAULT ${currentYear}`}
+      </p>
+      <div 
+        className="footer-navlinks"
+        role="navigation"
+        aria-label="Liens sociaux"
+      >
         <nav>
-          <ul>
+          <ul role="list">
             <GithubLink />
             <LinkedInLink />
           </ul>
@@ -18,4 +32,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default memo(Footer);

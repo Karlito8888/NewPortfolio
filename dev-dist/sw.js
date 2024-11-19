@@ -67,7 +67,7 @@ if (!self.define) {
     });
   };
 }
-define(['./workbox-95dee3cf'], (function (workbox) { 'use strict';
+define(['./workbox-aa1870d5'], (function (workbox) { 'use strict';
 
   self.skipWaiting();
   workbox.clientsClaim();
@@ -82,21 +82,49 @@ define(['./workbox-95dee3cf'], (function (workbox) { 'use strict';
     "revision": "3ca0b8505b4bec776b69afdba2768812"
   }, {
     "url": "index.html",
-    "revision": "0.asbs7me51ag"
+    "revision": "0.tt56pb7gg8"
   }], {});
   workbox.cleanupOutdatedCaches();
   workbox.registerRoute(new workbox.NavigationRoute(workbox.createHandlerBoundToURL("index.html"), {
     allowlist: [/^\/$/]
   }));
-  workbox.registerRoute(/.*\.pdf$/, new workbox.CacheFirst({
-    "cacheName": "pdf-cache",
+  workbox.registerRoute(/\.(js|css|woff2?|ttf|eot)$/i, new workbox.CacheFirst({
+    "cacheName": "static-assets",
     plugins: [new workbox.ExpirationPlugin({
-      maxEntries: 50
+      maxEntries: 50,
+      maxAgeSeconds: 2592000
+    }), new workbox.CacheableResponsePlugin({
+      statuses: [0, 200]
     })]
   }), 'GET');
-  workbox.registerRoute(/.*/, new workbox.NetworkFirst({
-    "cacheName": "html-cache",
-    plugins: []
+  workbox.registerRoute(/\.(png|jpg|jpeg|gif|svg|ico|webp)$/i, new workbox.CacheFirst({
+    "cacheName": "images-cache",
+    plugins: [new workbox.ExpirationPlugin({
+      maxEntries: 60,
+      maxAgeSeconds: 2592000
+    }), new workbox.CacheableResponsePlugin({
+      statuses: [0, 200]
+    })]
+  }), 'GET');
+  workbox.registerRoute(/\.pdf$/i, new workbox.NetworkFirst({
+    "cacheName": "pdf-cache",
+    "networkTimeoutSeconds": 3,
+    plugins: [new workbox.ExpirationPlugin({
+      maxEntries: 10,
+      maxAgeSeconds: 604800
+    }), new workbox.CacheableResponsePlugin({
+      statuses: [0, 200]
+    })]
+  }), 'GET');
+  workbox.registerRoute(/^[^?]*([?].*)?$/, new workbox.NetworkFirst({
+    "cacheName": "spa-cache",
+    plugins: [new workbox.ExpirationPlugin({
+      maxEntries: 10,
+      maxAgeSeconds: 86400
+    }), new workbox.CacheableResponsePlugin({
+      statuses: [0, 200]
+    })]
   }), 'GET');
 
 }));
+//# sourceMappingURL=sw.js.map

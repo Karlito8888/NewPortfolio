@@ -1,51 +1,61 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+const SLIDE_INTERVAL = 4000;
 
 const Gallery = ({ projects = [], isHovered }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const hasProjects = projects.length > 0;
 
-  const changeSlide = (index) => {
+  const changeSlide = useCallback((index) => {
     setCurrentSlide(index);
-  };
+  }, []);
 
   useEffect(() => {
-    let interval;
-    if (!isHovered) {
-      interval = setInterval(() => {
-        setCurrentSlide((prevSlide) => (prevSlide + 1) % projects.length);
-      }, 4000);
-    }
+    if (!hasProjects || isHovered) return;
 
-    return () => {
-      clearInterval(interval);
-    };
-  }, [projects.length, isHovered]);
+    const interval = setInterval(() => {
+      setCurrentSlide((prevSlide) => (prevSlide + 1) % projects.length);
+    }, SLIDE_INTERVAL);
+
+    return () => clearInterval(interval);
+  }, [projects.length, isHovered, hasProjects]);
 
   if (!hasProjects) {
-    return <p>Aucun projet trouvé...</p>;
+    return (
+      <p role="alert" className="no-projects">
+        Aucun projet trouvé...
+      </p>
+    );
   }
 
+  const currentProject = projects[currentSlide];
+
   return (
-    <>
+    <div role="region" aria-label="Galerie de projets">
       <div className="gallery-container">
-        <div className="carousel-container">
+        <div 
+          className="carousel-container"
+          aria-live="polite"
+        >
           <img
-            className={`carousel-img active`}
-            src={projects[currentSlide].img}
-            alt={`Slide ${currentSlide + 1} - ${projects[currentSlide].title}`}
+            className="carousel-img active"
+            src={currentProject.img}
+            alt={`${currentProject.title} - Capture d'écran du projet`}
+            loading="lazy"
           />
         </div>
         <div className="title-links">
-          <h3>{projects[currentSlide].title}</h3>
+          <h3 id={`project-title-${currentSlide}`}>{currentProject.title}</h3>
           <div className="project-links">
             <a
-              href={projects[currentSlide].link}
+              href={currentProject.link}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`Voir le projet ${projects[currentSlide].title}`}
+              aria-labelledby={`project-title-${currentSlide}`}
+              className="project-link"
             >
               <FontAwesomeIcon
                 icon={faLink}
@@ -56,10 +66,11 @@ const Gallery = ({ projects = [], isHovered }) => {
               <span className="sr-only">Voir le projet</span>
             </a>
             <a
-              href={projects[currentSlide].link2}
+              href={currentProject.link2}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`Voir le code source de ${projects[currentSlide].title} sur GitHub`}
+              aria-labelledby={`project-title-${currentSlide}`}
+              className="github-link"
             >
               <FontAwesomeIcon
                 icon={faGithub}
@@ -71,20 +82,26 @@ const Gallery = ({ projects = [], isHovered }) => {
             </a>
           </div>
         </div>
-        <p>{projects[currentSlide].infos}</p>
+        <p>{currentProject.infos}</p>
       </div>
-      <div className="dots-container">
+      <div 
+        className="dots-container"
+        role="tablist"
+        aria-label="Navigation des projets"
+      >
         {projects.map((_, index) => (
           <button
             key={index}
             className={`dot ${currentSlide === index ? "active" : ""}`}
             onClick={() => changeSlide(index)}
-            aria-label={`Diapositive ${index + 1}`}
+            aria-label={`Voir le projet ${projects[index].title}`}
+            aria-selected={currentSlide === index}
+            role="tab"
             type="button"
           />
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

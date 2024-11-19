@@ -3,10 +3,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ContactInfo = () => {
   return (
-    <div
+    <address
       className="contact-address"
       itemScope
       itemType="https://schema.org/Organization"
+      aria-label="Informations de contact"
     >
       <span itemProp="name">
         <strong>Charles BOURGAULT (E.I)</strong>
@@ -19,7 +20,8 @@ const ContactInfo = () => {
       >
         <span itemProp="streetAddress">10, rue du Colisée</span>
         <p>
-          <span itemProp="postalCode">75008, </span>
+          <span itemProp="postalCode">75008</span>
+          <span aria-hidden="true">, </span>
           <span itemProp="addressLocality">Paris</span>
         </p>
         <a
@@ -27,12 +29,17 @@ const ContactInfo = () => {
           target="_blank"
           rel="noopener noreferrer"
           className="wa-me"
+          aria-label="Contactez-moi sur WhatsApp au 06.42.66.33.00"
         >
-          <FontAwesomeIcon icon={faWhatsapp} />
-          06.42.66.33.00
+          <FontAwesomeIcon 
+            icon={faWhatsapp} 
+            aria-hidden="true"
+            role="img"
+          />
+          <span>06.42.66.33.00</span>
         </a>
       </div>
-    </div>
+    </address>
   );
 };
 

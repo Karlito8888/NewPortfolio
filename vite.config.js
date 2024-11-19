@@ -1,5 +1,4 @@
 // vite.config.js
-
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
@@ -9,9 +8,10 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
-      registerType: "autoUpdate",
+      registerType: 'autoUpdate',
       devOptions: {
-        enabled: true, 
+        enabled: true,
+        type: 'module',
       },
       manifest: {
         short_name: "Portfolio",
@@ -22,6 +22,7 @@ export default defineConfig({
         theme_color: "#70d7f7",
         display: "standalone",
         description: "Développeur Web Frontend à Paris",
+        categories: ["portfolio", "education", "productivity"],
         icons: [
           {
             src: "./icons/logo-cb-16.png",
@@ -115,29 +116,92 @@ export default defineConfig({
             form_factor: "narrow",
           },
         ],
-        categories: ["portfolio", "education", "productivity"],
       },
       workbox: {
+        globPatterns: [
+          '**/*.{js,css,html,ico,png,svg,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,pdf}'
+        ],
+        cleanupOutdatedCaches: true,
+        sourcemap: true,
+        navigateFallback: 'index.html',
         runtimeCaching: [
           {
-            urlPattern: /.*\.pdf$/, 
-            handler: "CacheFirst",
+            urlPattern: /\.(js|css|woff2?|ttf|eot)$/i,
+            handler: 'CacheFirst',
             options: {
-              cacheName: "pdf-cache",
+              cacheName: 'static-assets',
               expiration: {
-                maxEntries: 50, 
+                maxEntries: 50,
+                maxAgeSeconds: 30 * 24 * 60 * 60 // 30 jours
               },
-            },
+              cacheableResponse: {
+                statuses: [0, 200]
+              }
+            }
           },
           {
-            urlPattern: /.*/, 
-            handler: "NetworkFirst", 
+            urlPattern: /\.(png|jpg|jpeg|gif|svg|ico|webp)$/i,
+            handler: 'CacheFirst',
             options: {
-              cacheName: "html-cache", 
-            },
+              cacheName: 'images-cache',
+              expiration: {
+                maxEntries: 60,
+                maxAgeSeconds: 30 * 24 * 60 * 60 // 30 jours
+              },
+              cacheableResponse: {
+                statuses: [0, 200]
+              }
+            }
           },
-        ],
+          {
+            urlPattern: /\.pdf$/i,
+            handler: 'NetworkFirst',
+            options: {
+              cacheName: 'pdf-cache',
+              expiration: {
+                maxEntries: 10,
+                maxAgeSeconds: 7 * 24 * 60 * 60 // 1 semaine
+              },
+              cacheableResponse: {
+                statuses: [0, 200]
+              },
+              networkTimeoutSeconds: 3
+            }
+          },
+          {
+            urlPattern: /^[^?]*([?].*)?$/,
+            handler: 'NetworkFirst',
+            options: {
+              cacheName: 'spa-cache',
+              expiration: {
+                maxEntries: 10,
+                maxAgeSeconds: 24 * 60 * 60 // 1 jour
+              },
+              cacheableResponse: {
+                statuses: [0, 200]
+              }
+            }
+          }
+        ]
       },
+      strategies: 'generateSW',
+      injectRegister: 'auto',
+      minify: true,
+      filename: 'sw.js',
+      manifestFilename: 'manifest.webmanifest',
+      includeAssets: ['favicon.ico', 'robots.txt', 'icons/*.png'],
     }),
   ],
+  build: {
+    sourcemap: true,
+    assetsInlineLimit: 4096,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          style: ['./src/styles/index.scss']
+        }
+      }
+    }
+  }
 });

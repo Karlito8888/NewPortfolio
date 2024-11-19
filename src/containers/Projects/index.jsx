@@ -22,18 +22,44 @@ const Projects = () => {
   };
 
   return (
-    <section className="projects-container" id="projets">
-      <h2 className="projects-title">Mes projets</h2>
-      <div className="last-project">
-        <p className="last-project-title">Mon projet en cours...</p>
+    <section 
+      className="projects-container" 
+      id="projets"
+      aria-labelledby="projects-heading"
+    >
+      <h2 
+        id="projects-heading" 
+        className="projects-title"
+      >
+        Mes projets
+      </h2>
+      <div 
+        className="last-project"
+        role="article"
+        aria-labelledby="current-project-title"
+      >
+        <p 
+          id="current-project-title"
+          className="last-project-title"
+        >
+          Mon projet en cours...
+        </p>
         <VideoComponent />
-        <div className="last-project-logos">
-          <img src={mdb} className="logo-mongoDB" alt="logo de mongoDB" />
-          <img src={ex} className="logo-express" alt="logo de express" />
-          <img src={react} className="logo-react" alt="logo de react" />
-          <img src={njs} className="logo-NodeJS" alt="logo de NodeJS" />
+        <div 
+          className="last-project-logos"
+          role="group"
+          aria-label="Technologies utilisées"
+        >
+          <img src={mdb} className="logo-mongoDB" alt="MongoDB - Base de données NoSQL" />
+          <img src={ex} className="logo-express" alt="Express.js - Framework backend Node.js" />
+          <img src={react} className="logo-react" alt="React - Bibliothèque frontend JavaScript" />
+          <img src={njs} className="logo-NodeJS" alt="Node.js - Environnement d'exécution JavaScript" />
         </div>
-        <div className="last-project-description">
+        <div 
+          className="last-project-description"
+          role="article"
+          aria-label="Description détaillée du projet en cours"
+        >
           <p>
             À la suite de ma formation en tant qu'intégrateur Web, je me lance
             dans un projet fullstack utilisant la stack <strong>MERN</strong>...
@@ -57,27 +83,28 @@ const Projects = () => {
             simuler des données et enrichir l'expérience utilisateur.
           </p>
           <br />
-          <p>
-            Parmi les fonctionnalités que je mets en place, on trouve :
-            <ul>
-              <li>
-                Un système d'authentification robuste utilisant des tokens{" "}
-                <strong>JWT</strong>, garantissant la sécurité des utilisateurs.
-              </li>
-              <li>
-                La gestion des utilisateurs, des paniers et des commandes, pour
-                offrir une expérience d'achat fluide.
-              </li>
-              <li>
-                Des options de paiement intégrées via <strong>Stripe</strong>,
-                assurant des transactions sécurisées.
-              </li>
-              <li>
-                Un tableau de bord administrateur permettant de créer et de
-                mettre à jour facilement des produits.
-              </li>
-            </ul>
-          </p>
+          <p id="features-heading">Parmi les fonctionnalités que je mets en place :</p>
+          <ul 
+            role="list"
+            aria-labelledby="features-heading"
+          >
+            <li role="listitem">
+              Un système d'authentification robuste utilisant des tokens{" "}
+              <strong>JWT</strong>, garantissant la sécurité des utilisateurs.
+            </li>
+            <li role="listitem">
+              La gestion des utilisateurs, des paniers et des commandes, pour
+              offrir une expérience d'achat fluide.
+            </li>
+            <li role="listitem">
+              Des options de paiement intégrées via <strong>Stripe</strong>,
+              assurant des transactions sécurisées.
+            </li>
+            <li role="listitem">
+              Un tableau de bord administrateur permettant de créer et de
+              mettre à jour facilement des produits.
+            </li>
+          </ul>
           <br />
           <p>
             Ce projet représente non seulement un défi technique, mais aussi une
@@ -86,26 +113,43 @@ const Projects = () => {
             évoluer.
           </p>
         </div>
-        <p className="others-projects-title">... et mes autres projets ! *</p>
+        <p 
+          className="others-projects-title"
+          id="other-projects-heading"
+        >
+          ... et mes autres projets ! *
+        </p>
       </div>
-      <div className="projects-content">
+      <div 
+        className="projects-content"
+        role="list"
+        aria-labelledby="other-projects-heading"
+      >
         {themes.map((theme) => (
           <div
             key={theme}
             className="project-card"
+            role="listitem"
+            aria-label={`Projets ${theme}`}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
             <img
               src={logos[theme]}
-              alt={`${theme} logo`}
+              alt={`Technologies utilisées : ${theme}`}
               className="theme-logo"
             />
             <Gallery projects={projectsData[theme]} isHovered={isHovered} />
           </div>
         ))}
       </div>
-      <p className="p-bottom">* Tous ces projets sont 100% Responsives.</p>
+      <p 
+        className="p-bottom"
+        role="note"
+        aria-label="Note sur la compatibilité"
+      >
+        * Tous ces projets sont 100% Responsives.
+      </p>
     </section>
   );
 };

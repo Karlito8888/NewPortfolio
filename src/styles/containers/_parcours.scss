@@ -11,6 +11,22 @@
   }
   .timeline-element {
     transition: transform 0.1s ease-in-out;
+
+    h4, h5, h6, p {
+      color: inherit;
+    }
+
+    [data-theme="light"] & {
+      .vertical-timeline-element-content {
+        color: #333;
+      }
+    }
+
+    [data-theme="dark"] & {
+      .vertical-timeline-element-content {
+        color: #eeeeee;
+      }
+    }
   }
 
   .timeline-element:hover {
@@ -36,8 +52,11 @@
   }
 
   .custom-date-class {
-    color: inherit;
     font-weight: bold;
+    background: none !important;
+    opacity: 1 !important;
+    position: relative;
+    z-index: 999 !important;
 
     [data-theme="light"] & {
       color: var(--color-text-light) !important;
