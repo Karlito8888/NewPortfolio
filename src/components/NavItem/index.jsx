@@ -21,7 +21,6 @@ const NavItem = ({
   return (
     <li 
       className="navbar-item"
-      role="menuitem"
     >
       <a
         href={href}

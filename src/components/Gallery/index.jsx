@@ -48,13 +48,15 @@ const Gallery = ({ projects = [], isHovered }) => {
           />
         </div>
         <div className="title-links">
-          <h3 id={`project-title-${currentSlide}`}>{currentProject.title}</h3>
+          <h3 id={`project-${currentProject.title.toLowerCase().replace(/\s+/g, '-')}`}>
+            {currentProject.title}
+          </h3>
           <div className="project-links">
             <a
               href={currentProject.link}
               target="_blank"
               rel="noopener noreferrer"
-              aria-labelledby={`project-title-${currentSlide}`}
+              aria-labelledby={`project-${currentProject.title.toLowerCase().replace(/\s+/g, '-')}`}
               className="project-link"
             >
               <FontAwesomeIcon
@@ -69,7 +71,7 @@ const Gallery = ({ projects = [], isHovered }) => {
               href={currentProject.link2}
               target="_blank"
               rel="noopener noreferrer"
-              aria-labelledby={`project-title-${currentSlide}`}
+              aria-labelledby={`project-${currentProject.title.toLowerCase().replace(/\s+/g, '-')}`}
               className="github-link"
             >
               <FontAwesomeIcon

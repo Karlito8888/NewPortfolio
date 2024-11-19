@@ -3,7 +3,7 @@ import LinkedIn from "./Linkedin.svg";
 import SquareCv from "./SquareCv.svg";
 
 export const CvLink = ({ onClick }) => (
-  <li className="link-item" role="menuitem">
+  <li className="link-item">
     <a
       href="./CV_Charles_BOURGAULT.pdf"
       target="_blank"
@@ -25,7 +25,7 @@ export const CvLink = ({ onClick }) => (
 );
 
 export const GithubLink = () => (
-  <li className="link-item" role="menuitem">
+  <li className="link-item">
     <a
       href="https://github.com/Karlito8888"
       target="_blank"
@@ -45,7 +45,7 @@ export const GithubLink = () => (
 );
 
 export const LinkedInLink = () => (
-  <li className="link-item" role="menuitem">
+  <li className="link-item">
     <a
       href="https://www.linkedin.com/in/charles-bourgault-407694300/"
       target="_blank"

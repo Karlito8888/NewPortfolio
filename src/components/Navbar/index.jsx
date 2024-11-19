@@ -62,7 +62,7 @@ const Navbar = () => {
           role="navigation" 
           aria-label="Navigation principale"
         >
-          <ul role="menubar">
+          <ul role="menu" aria-label="Navigation principale">
             {listnav.map((item) => (
               <NavItem
                 key={item.name}
@@ -108,11 +108,14 @@ const Navbar = () => {
       <div 
         id="mobile-menu"
         className={`dropdown-nav ${isMenuOpen ? "active" : ""}`}
-        aria-hidden={!isMenuOpen}
+        hidden={!isMenuOpen}
       >
-        <nav aria-label="Menu mobile">
+        <nav 
+          aria-label="Menu mobile"
+          role="navigation"
+        >
           <div className="listnav-container">
-            <ul role="menu">
+            <ul role="menu" aria-label="Menu de navigation mobile">
               {listnav.map((item) => (
                 <NavItem
                   key={item.name}
@@ -127,7 +130,7 @@ const Navbar = () => {
           </div>
 
           <div className="navlinks-container">
-            <ul role="menu">
+            <ul role="menu" aria-label="Liens sociaux">
               {showNavLinks && (
                 <>
                   <CvLink 
