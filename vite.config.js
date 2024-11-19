@@ -119,7 +119,7 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: [
-          '**/*.{js,css,html,ico,png,svg,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,pdf}'
+          '**/*.{js,css,html,ico,png,svg,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,pdf,mp4,webm}'
         ],
         cleanupOutdatedCaches: true,
         sourcemap: true,
@@ -169,6 +169,20 @@ export default defineConfig({
             }
           },
           {
+            urlPattern: /\.(mp4|webm)$/i,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'videos-cache',
+              expiration: {
+                maxEntries: 10,
+                maxAgeSeconds: 30 * 24 * 60 * 60 // 30 jours
+              },
+              cacheableResponse: {
+                statuses: [0, 200]
+              }
+            }
+          },
+          {
             urlPattern: /^[^?]*([?].*)?$/,
             handler: 'NetworkFirst',
             options: {
@@ -197,11 +211,16 @@ export default defineConfig({
     assetsInlineLimit: 4096,
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom'],
-          style: ['./src/styles/index.scss']
-        }
-      }
-    }
+        manualChunks: undefined,
+        assetFileNames: (assetInfo) => {
+          const info = assetInfo.name.split('.');
+          const extType = info[info.length - 1];
+          if (/\.(mp4|webm)$/i.test(assetInfo.name)) {
+            return `assets/videos/[name]-[hash][extname]`;
+          }
+          return `assets/[name]-[hash][extname]`;
+        },
+      },
+    },
   }
 });

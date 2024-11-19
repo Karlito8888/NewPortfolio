@@ -62,7 +62,11 @@ const Navbar = () => {
           role="navigation" 
           aria-label="Navigation principale"
         >
-          <ul role="menu" aria-label="Navigation principale">
+          <ul 
+            role="menubar" 
+            aria-label="Navigation principale"
+            aria-orientation="horizontal"
+          >
             {listnav.map((item) => (
               <NavItem
                 key={item.name}
@@ -74,14 +78,14 @@ const Navbar = () => {
               />
             ))}
             {!showNavLinks && (
-              <>
+              <ul className="social-links" aria-label="Liens sociaux">
                 <CvLink 
                   onClick={() => handleTabClick("CV")} 
                   aria-current={activeTab === "CV" ? "page" : undefined}
                 />
                 <GithubLink />
                 <LinkedInLink />
-              </>
+              </ul>
             )}
             {showMenuIcon && (
               <div className="menu-icon">

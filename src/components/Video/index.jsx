@@ -5,10 +5,16 @@ import myVideo from "./Mern.mp4";
 import myPhoto from "./mern.jpeg";
 
 const VideoComponent = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [isVideoError, setIsVideoError] = useState(false);
 
   const handleVideoError = useCallback(() => {
     setIsVideoError(true);
+    setIsLoading(false);
+  }, []);
+
+  const handleVideoLoad = useCallback(() => {
+    setIsLoading(false);
   }, []);
 
   return (
@@ -41,31 +47,40 @@ const VideoComponent = () => {
         </a>
       </div>
       {!isVideoError ? (
-        <video
-          controls
-          autoPlay
-          muted
-          loop
-          preload="metadata"
-          playsInline
-          poster={myPhoto}
-          onError={handleVideoError}
-          aria-label="Démonstration vidéo du projet E-CommMERN"
-        >
-          <source 
-            src={myVideo} 
-            type="video/mp4" 
-          />
-          <track 
-            kind="captions" 
-            srcLang="fr" 
-            label="Français"
-          />
-          <p>
-            Votre navigateur ne prend pas en charge la lecture de vidéos.
-            Vous pouvez <a href={myVideo}>télécharger la vidéo</a> pour la visionner.
-          </p>
-        </video>
+        <>
+          {isLoading && (
+            <div className="loading-placeholder" aria-hidden="true">
+              <img src={myPhoto} alt="" className="placeholder-image" />
+            </div>
+          )}
+          <video
+            controls
+            autoPlay
+            muted
+            loop
+            preload="auto"
+            playsInline
+            poster={myPhoto}
+            onError={handleVideoError}
+            onLoadedData={handleVideoLoad}
+            style={{ display: isLoading ? 'none' : 'block' }}
+            aria-label="Démonstration vidéo du projet E-CommMERN"
+          >
+            <source 
+              src={myVideo} 
+              type="video/mp4" 
+            />
+            <track 
+              kind="captions" 
+              srcLang="fr" 
+              label="Français"
+            />
+            <p>
+              Votre navigateur ne prend pas en charge la lecture de vidéos.
+              Vous pouvez <a href={myVideo}>télécharger la vidéo</a> pour la visionner.
+            </p>
+          </video>
+        </>
       ) : (
         <img
           src={myPhoto}
