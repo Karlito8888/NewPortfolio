@@ -2,6 +2,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
+import { generateNonce } from './src/utils/nonce';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -229,5 +230,8 @@ export default defineConfig({
     },
     minify: 'esbuild',
     target: 'esnext',
+  },
+  define: {
+    'process.env.VITE_NONCE': JSON.stringify(generateNonce())
   }
 });
