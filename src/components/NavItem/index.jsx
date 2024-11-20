@@ -19,15 +19,11 @@ const NavItem = ({
   }, [onClick, item]);
 
   return (
-    <li 
-      className="navbar-item"
-      role="none"
-    >
+    <li className="navbar-item">
       <a
         href={href}
         onClick={handleClick}
         className={isActive ? "active" : ""}
-        role="menuitem"
         aria-label={item.name}
         aria-current={isActive ? "page" : undefined}
       >

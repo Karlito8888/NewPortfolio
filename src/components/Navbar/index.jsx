@@ -57,7 +57,7 @@ const Navbar = () => {
     <>
       <div className="navbar">
         <nav aria-label="Navigation principale" className="navbar-container">
-          <ul role="menubar" aria-label="Menu principal">
+          <menu>
             {listnav.map((item) => (
               <NavItem
                 key={item.name}
@@ -68,16 +68,16 @@ const Navbar = () => {
                 aria-current={activeTab === item.name ? "page" : undefined}
               />
             ))}
-          </ul>
+          </menu>
           {!showNavLinks && (
-            <ul className="social-links" aria-label="Liens sociaux">
+            <menu className="social-links" aria-label="Liens sociaux">
               <CvLink 
                 onClick={() => handleTabClick("CV")} 
                 aria-current={activeTab === "CV" ? "page" : undefined}
               />
               <GithubLink />
               <LinkedInLink />
-            </ul>
+            </menu>
           )}
           {showMenuIcon && (
             <button
@@ -105,7 +105,7 @@ const Navbar = () => {
       >
         <nav aria-label="Menu mobile">
           <div className="listnav-container">
-            <ul role="menu" aria-label="Menu de navigation mobile">
+            <menu>
               {listnav.map((item) => (
                 <NavItem
                   key={item.name}
@@ -116,19 +116,19 @@ const Navbar = () => {
                   aria-current={activeTab === item.name ? "page" : undefined}
                 />
               ))}
-            </ul>
+            </menu>
           </div>
 
           <div className="navlinks-container">
             {showNavLinks && (
-              <ul role="menu" aria-label="Liens sociaux">
+              <menu className="social-links" aria-label="Liens sociaux">
                 <CvLink 
                   onClick={() => handleTabClick("CV")} 
                   aria-current={activeTab === "CV" ? "page" : undefined}
                 />
                 <GithubLink />
                 <LinkedInLink />
-              </ul>
+              </menu>
             )}
           </div>
         </nav>
