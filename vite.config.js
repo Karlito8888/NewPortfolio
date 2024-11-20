@@ -197,7 +197,7 @@ export default defineConfig({
               }
             }
           }
-        ]
+        ],
       },
       strategies: 'generateSW',
       injectRegister: 'auto',
@@ -212,7 +212,11 @@ export default defineConfig({
     assetsInlineLimit: 4096,
     rollupOptions: {
       output: {
-        manualChunks: undefined,
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom'],
+          'router-vendor': ['react-router-dom', '@remix-run/router'],
+          'fontawesome-vendor': ['@fortawesome/fontawesome-svg-core', '@fortawesome/free-solid-svg-icons'],
+        },
         assetFileNames: (assetInfo) => {
           const info = assetInfo.name.split('.');
           const extType = info[info.length - 1];
@@ -223,5 +227,7 @@ export default defineConfig({
         },
       },
     },
+    minify: 'esbuild',
+    target: 'esnext',
   }
 });

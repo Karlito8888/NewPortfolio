@@ -2,14 +2,12 @@ import { useMemo, useState, useEffect, useCallback } from "react";
 import NavItem from "../NavItem";
 import { CvLink, GithubLink, LinkedInLink } from "../NavLinks";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faUser,
-  faLaptopCode,
-  faGraduationCap,
-  faEnvelope,
-  faBars,
-  faTimes,
-} from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons/faUser";
+import { faLaptopCode } from "@fortawesome/free-solid-svg-icons/faLaptopCode";
+import { faGraduationCap } from "@fortawesome/free-solid-svg-icons/faGraduationCap";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons/faEnvelope";
+import { faBars } from "@fortawesome/free-solid-svg-icons/faBars";
+import { faTimes } from "@fortawesome/free-solid-svg-icons/faTimes";
 
 const MOBILE_BREAKPOINT = 760;
 const NAVLINKS_BREAKPOINT = 600;
@@ -58,8 +56,8 @@ const Navbar = () => {
   return (
     <>
       <div className="navbar">
-        <nav aria-label="Navigation principale">
-          <ul>
+        <nav aria-label="Navigation principale" className="navbar-container">
+          <ul role="menubar" aria-label="Menu principal">
             {listnav.map((item) => (
               <NavItem
                 key={item.name}
@@ -70,37 +68,33 @@ const Navbar = () => {
                 aria-current={activeTab === item.name ? "page" : undefined}
               />
             ))}
-            {!showNavLinks && (
-              <li className="social-links-container">
-                <ul className="social-links" aria-label="Liens sociaux">
-                  <CvLink 
-                    onClick={() => handleTabClick("CV")} 
-                    aria-current={activeTab === "CV" ? "page" : undefined}
-                  />
-                  <GithubLink />
-                  <LinkedInLink />
-                </ul>
-              </li>
-            )}
-            {showMenuIcon && (
-              <div className="menu-icon">
-                <button
-                  onClick={toggleMenu}
-                  className="menu-button"
-                  aria-expanded={isMenuOpen}
-                  aria-controls="mobile-menu"
-                  aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
-                >
-                  <FontAwesomeIcon
-                    icon={isMenuOpen ? faTimes : faBars}
-                    size="xl"
-                    className="menu-icon"
-                    aria-hidden="true"
-                  />
-                </button>
-              </div>
-            )}
           </ul>
+          {!showNavLinks && (
+            <ul className="social-links" aria-label="Liens sociaux">
+              <CvLink 
+                onClick={() => handleTabClick("CV")} 
+                aria-current={activeTab === "CV" ? "page" : undefined}
+              />
+              <GithubLink />
+              <LinkedInLink />
+            </ul>
+          )}
+          {showMenuIcon && (
+            <button
+              onClick={toggleMenu}
+              className="menu-button"
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-menu"
+              aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            >
+              <FontAwesomeIcon
+                icon={isMenuOpen ? faTimes : faBars}
+                size="xl"
+                className="menu-icon"
+                aria-hidden="true"
+              />
+            </button>
+          )}
         </nav>
       </div>
 
@@ -111,7 +105,7 @@ const Navbar = () => {
       >
         <nav aria-label="Menu mobile">
           <div className="listnav-container">
-            <ul aria-label="Menu de navigation mobile">
+            <ul role="menu" aria-label="Menu de navigation mobile">
               {listnav.map((item) => (
                 <NavItem
                   key={item.name}
@@ -126,20 +120,16 @@ const Navbar = () => {
           </div>
 
           <div className="navlinks-container">
-            <ul aria-label="Liens sociaux">
-              {showNavLinks && (
-                <li className="social-links-container">
-                  <ul>
-                    <CvLink 
-                      onClick={() => handleTabClick("CV")} 
-                      aria-current={activeTab === "CV" ? "page" : undefined}
-                    />
-                    <GithubLink />
-                    <LinkedInLink />
-                  </ul>
-                </li>
-              )}
-            </ul>
+            {showNavLinks && (
+              <ul role="menu" aria-label="Liens sociaux">
+                <CvLink 
+                  onClick={() => handleTabClick("CV")} 
+                  aria-current={activeTab === "CV" ? "page" : undefined}
+                />
+                <GithubLink />
+                <LinkedInLink />
+              </ul>
+            )}
           </div>
         </nav>
       </div>

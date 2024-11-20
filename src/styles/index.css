@@ -260,6 +260,10 @@ button {
 }
 .navbar nav {
   height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
 }
 .navbar nav ul {
   height: 100%;
