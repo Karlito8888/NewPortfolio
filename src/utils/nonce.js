@@ -1,8 +1,12 @@
 // Génère un nonce aléatoire pour la CSP
 export function generateNonce() {
-  const array = new Uint8Array(16);
-  crypto.getRandomValues(array);
-  return btoa(String.fromCharCode.apply(null, array));
+  // Générer une chaîne aléatoire de 16 caractères
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let nonce = '';
+  for (let i = 0; i < 16; i++) {
+    nonce += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return nonce;
 }
 
 // Stocke le nonce généré pour la session
