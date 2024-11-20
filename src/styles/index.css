@@ -831,6 +831,9 @@ button {
   min-height: 100vh;
   padding-block: 60px;
 }
+.parcours-container .vertical-timeline-element-content-arrow {
+  display: none !important;
+}
 .parcours-container .parcours-title {
   font-family: "Caveat", "Nimbus Mono PS", cursive;
   font-size: clamp(2.2rem, 0.9838rem + 3.8919vw, 4rem);
