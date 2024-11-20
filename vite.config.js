@@ -124,6 +124,7 @@ export default defineConfig({
         cleanupOutdatedCaches: true,
         sourcemap: true,
         navigateFallback: 'index.html',
+        maximumFileSizeToCacheInBytes: 60 * 1024 * 1024, // 60 MB
         runtimeCaching: [
           {
             urlPattern: /\.(js|css|woff2?|ttf|eot)$/i,
