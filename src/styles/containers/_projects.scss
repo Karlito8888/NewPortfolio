@@ -192,6 +192,12 @@
         margin-bottom: 1rem;
       }
 
+      .gallery-content {
+
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+
       .gallery-container {
         .carousel-container {
           position: relative;
@@ -283,7 +289,7 @@
         background-color: #70d7f7;
         //   filter: blur(1px);
       }
-    }
+    }}
   }
 
   .p-bottom {

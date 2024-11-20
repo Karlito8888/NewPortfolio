@@ -353,6 +353,11 @@ button {
     height: 30px;
     width: 30px;
   }
+  .menu-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 .pwa-update-alert {
   position: fixed;
@@ -686,7 +691,12 @@ button {
   height: auto;
   margin-bottom: 1rem;
 }
-.projects-container .projects-content .project-card .gallery-container .carousel-container {
+.projects-container .projects-content .project-card .gallery-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.projects-container .projects-content .project-card .gallery-content .gallery-container .carousel-container {
   position: relative;
   width: 100%;
   height: auto;
@@ -696,7 +706,7 @@ button {
   margin-bottom: 30px;
   border-radius: 8px;
 }
-.projects-container .projects-content .project-card .gallery-container .carousel-container .carousel-img {
+.projects-container .projects-content .project-card .gallery-content .gallery-container .carousel-container .carousel-img {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -709,11 +719,11 @@ button {
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
 }
-.projects-container .projects-content .project-card .gallery-container .carousel-container .carousel-img.active {
+.projects-container .projects-content .project-card .gallery-content .gallery-container .carousel-container .carousel-img.active {
   opacity: 1;
 }
-.projects-container .projects-content .project-card .gallery-container .carousel-container::after,
-.projects-container .projects-content .project-card .gallery-container .carousel-container::before {
+.projects-container .projects-content .project-card .gallery-content .gallery-container .carousel-container::after,
+.projects-container .projects-content .project-card .gallery-content .gallery-container .carousel-container::before {
   content: "";
   position: absolute;
   top: 0;
@@ -725,7 +735,7 @@ button {
   z-index: -1;
   animation: spin 4s linear infinite;
 }
-.projects-container .projects-content .project-card .gallery-container .carousel-container::after {
+.projects-container .projects-content .project-card .gallery-content .gallery-container .carousel-container::after {
   filter: blur(5px);
 }
 @keyframes spin {
@@ -736,23 +746,23 @@ button {
     --rotate: 360deg;
   }
 }
-.projects-container .projects-content .project-card .gallery-container .title-links {
+.projects-container .projects-content .project-card .gallery-content .gallery-container .title-links {
   display: flex;
   justify-content: space-between;
 }
-.projects-container .projects-content .project-card .gallery-container .title-links h3 {
+.projects-container .projects-content .project-card .gallery-content .gallery-container .title-links h3 {
   font-size: 1.4rem;
   margin-bottom: 15px;
 }
-.projects-container .projects-content .project-card .gallery-container .title-links .project-links {
+.projects-container .projects-content .project-card .gallery-content .gallery-container .title-links .project-links {
   display: flex;
   gap: 15px;
 }
-.projects-container .projects-content .project-card .dots-container {
+.projects-container .projects-content .project-card .gallery-content .dots-container {
   text-align: center;
   margin-top: auto;
 }
-.projects-container .projects-content .project-card .dot {
+.projects-container .projects-content .project-card .gallery-content .dot {
   height: 12px;
   width: 12px;
   margin: 0 8px;
@@ -761,7 +771,7 @@ button {
   display: inline-block;
   cursor: pointer;
 }
-.projects-container .projects-content .project-card .dot.active {
+.projects-container .projects-content .project-card .gallery-content .dot.active {
   background-color: #70d7f7;
 }
 .projects-container .p-bottom {

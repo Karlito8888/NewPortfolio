@@ -34,12 +34,9 @@ const Gallery = ({ projects = [], isHovered }) => {
   const currentProject = projects[currentSlide];
 
   return (
-    <div role="region" aria-label="Galerie de projets">
+    <div role="region" aria-label="Galerie de projets" className="gallery-content">
       <div className="gallery-container">
-        <div 
-          className="carousel-container"
-          aria-live="polite"
-        >
+        <div className="carousel-container" aria-live="polite">
           <img
             className="carousel-img active"
             src={currentProject.img}
@@ -48,7 +45,11 @@ const Gallery = ({ projects = [], isHovered }) => {
           />
         </div>
         <div className="title-links">
-          <h3 id={`project-${currentProject.title.toLowerCase().replace(/\s+/g, '-')}`}>
+          <h3
+            id={`project-${currentProject.title
+              .toLowerCase()
+              .replace(/\s+/g, "-")}`}
+          >
             {currentProject.title}
           </h3>
           <div className="project-links">
@@ -56,7 +57,9 @@ const Gallery = ({ projects = [], isHovered }) => {
               href={currentProject.link}
               target="_blank"
               rel="noopener noreferrer"
-              aria-labelledby={`project-${currentProject.title.toLowerCase().replace(/\s+/g, '-')}`}
+              aria-labelledby={`project-${currentProject.title
+                .toLowerCase()
+                .replace(/\s+/g, "-")}`}
               className="project-link"
             >
               <FontAwesomeIcon
@@ -71,7 +74,9 @@ const Gallery = ({ projects = [], isHovered }) => {
               href={currentProject.link2}
               target="_blank"
               rel="noopener noreferrer"
-              aria-labelledby={`project-${currentProject.title.toLowerCase().replace(/\s+/g, '-')}`}
+              aria-labelledby={`project-${currentProject.title
+                .toLowerCase()
+                .replace(/\s+/g, "-")}`}
               className="github-link"
             >
               <FontAwesomeIcon
@@ -86,7 +91,7 @@ const Gallery = ({ projects = [], isHovered }) => {
         </div>
         <p>{currentProject.infos}</p>
       </div>
-      <div 
+      <div
         className="dots-container"
         role="tablist"
         aria-label="Navigation des projets"

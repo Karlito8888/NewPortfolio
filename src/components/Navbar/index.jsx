@@ -58,15 +58,8 @@ const Navbar = () => {
   return (
     <>
       <div className="navbar">
-        <nav 
-          role="navigation" 
-          aria-label="Navigation principale"
-        >
-          <ul 
-            role="menubar" 
-            aria-label="Navigation principale"
-            aria-orientation="horizontal"
-          >
+        <nav aria-label="Navigation principale">
+          <ul>
             {listnav.map((item) => (
               <NavItem
                 key={item.name}
@@ -78,14 +71,16 @@ const Navbar = () => {
               />
             ))}
             {!showNavLinks && (
-              <ul className="social-links" aria-label="Liens sociaux">
-                <CvLink 
-                  onClick={() => handleTabClick("CV")} 
-                  aria-current={activeTab === "CV" ? "page" : undefined}
-                />
-                <GithubLink />
-                <LinkedInLink />
-              </ul>
+              <li className="social-links-container">
+                <ul className="social-links" aria-label="Liens sociaux">
+                  <CvLink 
+                    onClick={() => handleTabClick("CV")} 
+                    aria-current={activeTab === "CV" ? "page" : undefined}
+                  />
+                  <GithubLink />
+                  <LinkedInLink />
+                </ul>
+              </li>
             )}
             {showMenuIcon && (
               <div className="menu-icon">
@@ -114,12 +109,9 @@ const Navbar = () => {
         className={`dropdown-nav ${isMenuOpen ? "active" : ""}`}
         hidden={!isMenuOpen}
       >
-        <nav 
-          aria-label="Menu mobile"
-          role="navigation"
-        >
+        <nav aria-label="Menu mobile">
           <div className="listnav-container">
-            <ul role="menu" aria-label="Menu de navigation mobile">
+            <ul aria-label="Menu de navigation mobile">
               {listnav.map((item) => (
                 <NavItem
                   key={item.name}
@@ -134,16 +126,18 @@ const Navbar = () => {
           </div>
 
           <div className="navlinks-container">
-            <ul role="menu" aria-label="Liens sociaux">
+            <ul aria-label="Liens sociaux">
               {showNavLinks && (
-                <>
-                  <CvLink 
-                    onClick={() => handleTabClick("CV")} 
-                    aria-current={activeTab === "CV" ? "page" : undefined}
-                  />
-                  <GithubLink />
-                  <LinkedInLink />
-                </>
+                <li className="social-links-container">
+                  <ul>
+                    <CvLink 
+                      onClick={() => handleTabClick("CV")} 
+                      aria-current={activeTab === "CV" ? "page" : undefined}
+                    />
+                    <GithubLink />
+                    <LinkedInLink />
+                  </ul>
+                </li>
               )}
             </ul>
           </div>
