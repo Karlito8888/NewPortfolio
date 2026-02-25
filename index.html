@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Manifest and Icons -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./icons/logo-cb-32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./icons/logo-cb-16.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./icons/logo-cb-180.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="./icons/logo-cb-152.png"
+    />
+    <link rel="mask-icon" href="./icons/logo-cb-32.png" color="#70d7f7" />
+
+    <!-- Font Preload -->
+    <link
+      rel="preload"
+      href="/fonts/Caveat-Regular.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+
+    <!-- PWA Setup -->
+    <meta
+      name="theme-color"
+      content="#70d7f7"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#1a1a1a"
+      media="(prefers-color-scheme: dark)"
+    />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Mon Portfolio" />
+    <meta name="application-name" content="Mon Portfolio" />
+    <meta name="msapplication-TileColor" content="#70d7f7" />
+    <meta name="msapplication-TileImage" content="/icons/logo-cb-144.png" />
+
+    <!-- Stylesheet -->
+    <!-- <link rel="stylesheet" href="/assets/styles.css"> -->
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Développeur Web Frontend situé à Paris, je vous présente mes compétences dans le domaine du développement web à travers mon portfolio. Différents projets de sites statiques et de sites dynamiques, tous responsives, en s'appuyant uniquement sur les langages connus comme le HTML, le CSS, SASS, JavaScript, et React... Quelques jeux aussi, et quelques notions de Backend apprises de manière autodidacte, telles PHP, MySQL, NodeJS, MongoDB. N'hésitez pas à me contacter."
+    />
+    <meta name="author" content="Charles BOURGAULT" />
+    <meta
+      name="keywords"
+      content="Développeur Web, Front-end, Intégration web, Portfolio, HTML, CSS, JavaScript, React, NodeJS, MongoDB"
+    />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Charles BOURGAULT, Développeur Web Frontend - Portfolio" />
+    <meta property="og:description" content="Développeur Web Frontend situé à Paris, je vous présente mes compétences dans le domaine du développement web à travers mon portfolio. Spécialisé en React, JavaScript, et technologies modernes du web." />
+    <meta property="og:url" content="https://charles-bourgault.netlify.app/" />
+    <meta property="og:site_name" content="Charles BOURGAULT - Portfolio" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:language" content="fr" />
+    
+    <!-- Open Graph Images -->
+    <meta property="og:image" content="https://charles-bourgault.netlify.app/icons/logo-cb-256.png" />
+    <meta property="og:image:width" content="256" />
+    <meta property="og:image:height" content="256" />
+    <meta property="og:image:alt" content="Logo de mon site portfolio" />
+    <meta property="og:image:type" content="image/png" />
+    
+    <!-- Open Graph Additional -->
+    <meta property="og:email" content="cb.dweb49@gmail.com" />
+    <meta property="og:region" content="Île-de-France" />
+    <meta property="og:country-name" content="France" />
+    <meta property="og:available_language" content="fr" />
+
+    <!-- Twitter Cards Meta Tags -->
+    <meta name="twitter:creator" content="@votre_compte_twitter" />
+    <meta name="twitter:title" content="Charles BOURGAULT - Portfolio Développeur Frontend" />
+    <meta name="twitter:description" content="Portfolio de Charles BOURGAULT, Développeur Web Frontend à Paris. Expertise en React, JavaScript, et développement web moderne. Découvrez mes projets et compétences!" />
+    <meta name="twitter:image" content="https://charles-bourgault.netlify.app/icons/logo-cb-256.png" />
+    <meta name="twitter:image:alt" content="Portfolio de Charles BOURGAULT, Développeur web front-end à Paris" />
+    
+    <!-- Twitter Additional -->
+    <meta name="twitter:label1" content="Localisation" />
+    <meta name="twitter:data1" content="Paris, France" />
+    <meta name="twitter:label2" content="Spécialités" />
+    <meta name="twitter:data2" content="React, JavaScript, Frontend" />
+
+    <!-- Professional Meta Tags -->
+    <meta name="author" content="Charles BOURGAULT" />
+    <meta name="keywords" content="développeur web, frontend, react, javascript, paris, portfolio, développeur frontend, développeur react, intégration web, sass, nodejs, mongodb, développeur paris" />
+    <meta name="geo.placename" content="Paris" />
+    <meta name="geo.region" content="FR-75" />
+    <meta name="geo.position" content="48.8566;2.3522" />
+    <meta name="ICBM" content="48.8566, 2.3522" />
+
+    <!-- Preconnect for external resources -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+
+    <title>Charles BOURGAULT, Développeur Web - Portfolio</title>
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Charles BOURGAULT",
+        "jobTitle": "Développeur Web Frontend",
+        "image": "https://charles-bourgault.netlify.app/icons/logo-cb-256.png",
+        "description": "Développeur Web Frontend situé à Paris, spécialisé dans le développement de sites web responsives en React.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "10 rue du Colisée",
+          "addressLocality": "Paris, France",
+          "addressRegion": "Ile-de-France",
+          "postalCode": "F-75008",
+          "addressCountry": "FR"
+        },
+        "telephone": "+33642663300",
+        "email": "cb.dweb49@gmail.com",
+        "url": "https://charles-bourgault.netlify.app/",
+        "sameAs": [
+          "https://www.linkedin.com/in/charles-bourgault-407694300/",
+          "https://github.com/Karlito8888"
+        ],
+        "knowsAbout": [
+          "Développement Frontend",
+          "React",
+          "JavaScript",
+          "HTML5",
+          "CSS3",
+          "SASS",
+          "Node.js",
+          "MongoDB",
+          "Responsive Design",
+          "PWA"
+        ],
+        "hasOccupation": {
+          "@type": "Occupation",
+          "name": "Développeur Frontend",
+          "skills": [
+            "React",
+            "JavaScript",
+            "HTML5",
+            "CSS3",
+            "SASS",
+            "Node.js",
+            "MongoDB",
+            "Git"
+          ],
+          "responsibilities": [
+            "Développement d'applications web",
+            "Intégration responsive",
+            "Optimisation des performances",
+            "Développement PWA"
+          ]
+        },
+        "workLocation": {
+          "@type": "Place",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Paris",
+            "addressRegion": "Ile-de-France",
+            "addressCountry": "FR"
+          }
+        },
+        "alumniOf": {
+          "@type": "EducationalOrganization",
+          "name": "OpenClassrooms",
+          "url": "https://openclassrooms.com"
+        },
+        "availableLanguage": [
+          {
+            "@type": "Language",
+            "name": "French",
+            "alternateName": "fr"
+          },
+          {
+            "@type": "Language",
+            "name": "English",
+            "alternateName": "en"
+          }
+        ],
+        "workExample": [
+          {
+            "@type": "CreativeWork",
+            "name": "Portfolio",
+            "url": "https://charles-bourgault.netlify.app/",
+            "description": "Portfolio personnel développé avec React et Vite"
+          }
+        ]
+      }
+    </script>
+    <script type="module" crossorigin src="/assets/index-Bl23IddH.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vendor-react-BNWAn3gF.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-fa-lUXq_kCu.js">
+    <link rel="stylesheet" crossorigin href="/assets/index.C8njjDs9.css">
+  <link rel="manifest" href="/manifest.webmanifest"></head>
+
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <div style="padding: 20px; text-align: center; font-family: system-ui, sans-serif;">
+        <h1>JavaScript est nécessaire</h1>
+        <p>Désolé, ce portfolio nécessite JavaScript pour fonctionner. Veuillez l'activer pour continuer.</p>
+        <p>Pour activer JavaScript :</p>
+        <ul style="list-style: none; padding: 0;">
+          <li>Chrome : Paramètres > Confidentialité et sécurité > JavaScript</li>
+          <li>Firefox : Paramètres > Vie privée et sécurité > JavaScript</li>
+          <li>Safari : Préférences > Sécurité > JavaScript</li>
+        </ul>
+      </div>
+    </noscript>
+  </body>
+</html>
